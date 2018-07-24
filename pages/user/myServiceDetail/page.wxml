@@ -1,0 +1,43 @@
+<!--pages/user/myService/myService.wxml-->
+<view class="session">
+  <view class='back'>
+    <image class='bgCall' src="/images/mall/indexImg/memberbg.png" mode="widthFix"></image>
+  </view>
+  <!--会员-->
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="/images/mall/indexImg/carts.png" mode="widthFix"></image>
+    <view class='storeName'>{{info.name}}</view>
+    <view class='storeNum'>N{{info.id}}</view>
+  </view>
+</view>
+
+<view class='memberCont'>
+  <view class='signTian'>
+    <view class='signTem border'>
+      <view class='nameText'>
+        详情
+      </view>
+    </view>
+    <view class='signTem border'>
+      <view class='nameText'>
+        价格：￥{{info.price/100}}
+      </view>
+    </view>
+    <view class='signTem border'>
+      <view class='nameText'>
+        服务年限：{{info.ageLimit}}天
+      </view>
+    </view>
+    <view class='signTem border'>
+      <view class='nameText'>
+        推广提成比列：{{info.tgTc}}%
+      </view>
+    </view>
+    <view class='signTem border'wx:if="{{info.type!=1}}">
+      <view class='nameText'>
+        返还银积分：{{info.fanJf}}
+      </view>
+    </view>
+  </view>
+</view>
+<!--end-->

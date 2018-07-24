@@ -1,0 +1,85 @@
+/* pages/site/comment/comment.wxss */
+page{
+  background: #f0f0f0
+}
+.pretable{
+  padding:0 20rpx;      
+  font-size:28rpx;
+}
+.distr{
+  font-size:28rpx;
+  background-color: #fff; 
+  box-shadow: #dedede 0px 0px 8px; 
+  border-radius:8rpx
+}
+.distr{
+ margin-top:20rpx;  
+}
+.distr .distd{
+padding:0 20rpx;
+height:90rpx; 
+background-color: #fff; 
+line-height:90rpx;
+display: flex;
+flex-flow: row;
+}
+.boder{
+ border-bottom: #dedede 1rpx solid;  
+}
+.prerow{
+width:100%;
+}
+.prerow2{
+width:80%;
+text-align: left
+}
+.cotip {
+  width: 5%;
+  text-align: right;
+}
+.itemImage {
+  width: 20rpx;
+  height: 25rpx;
+  margin-top: 20rpx;
+}
+.integInput {
+  border: none;
+  display: inline-block;
+  line-height: 90rpx;
+  height:90rpx;
+  padding-left: 20rpx
+}
+.datePick{
+ height:40rpx;
+ padding:10rpx 15rpx;
+}
+.picker{
+  font-size:28rpx;
+  height:55rpx
+}
+.refund-desc {
+    width:90%;
+    height: 200rpx;
+    margin: 0 auto;
+    border-radius:8rpx;
+    border: 1rpx #D9D9D9 solid;
+    text-align: left;
+    padding:10rpx;
+       margin-top:20rpx
+}
+.des{
+  padding:20rpx
+}
+.consultBottom{
+  margin-top: 100rpx;
+  font-size:28rpx
+}
+.coutip{
+  color:#999;
+  text-align:right;
+  padding:10rpx 0
+}
+.coubtn{
+  margin-top:0;
+
+}

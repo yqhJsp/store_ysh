@@ -1,0 +1,46 @@
+<!--分销-->
+<view class='row' wx:if="{{showstuts==1}}">
+<view class='consulTitle'>
+<label class='clable'>请填写您的个人信息,我们会尽快审核</label>
+</view>
+        <view class='order-detail'>    
+                <view class='order_table'>
+                        <view class='ordertr borders'>
+                                <view class='ordertd'>
+                                      <input  placeholder='您的姓名' bindinput='nameInput'></input>
+                                </view>
+                        </view>
+                        <view class='ordertr borders'>
+                                <view class='ordertd'>
+                                      <input  placeholder='您的电话'  bindinput='phoneInput' type="number"></input>
+                                </view>
+                        </view>
+                        
+                </view>
+        </view>
+        <view class='order-detail tip'>
+                <view class='order_table'>
+                        <view class='ordertr'>
+                                <view class='ordertd'>
+                 <textarea maxlength="150" class='refund-desc' bindinput="consultInput" placeholder='留言信息'></textarea>
+                                </view>
+                        </view>
+                </view>
+        </view>
+        <!--保存-->
+        <view class='order-detail'>
+                <view class='order_table'>
+                        <view class='ordertr'>
+                                <view class='ordertd'>
+                                        <button class='mod_btn'  bindtap='save'>提交审核</button>
+                                </view>
+                        </view>
+                </view>
+        </view>
+</view>
+
+<!--提交成功-->
+<view class='session' wx:if="{{hidden}}">
+ <image class='distip' src='/images/mall/indexImg/submitsuccess.png'></image>
+ <view class='gofen' bindtap='goHome'>返回个人中心</view>
+</view>

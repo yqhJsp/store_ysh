@@ -1,0 +1,25 @@
+<!--pages/vote/oneDetail/oneDetail.wxml-->
+<include src="../../../common/common.wxml"></include>
+<view class='row'>
+  <view class='videoBox'>
+  <view class='boxImg'>
+    <video src='{{fileDomain}}{{detail.identifier}}' id="index{{detail.id}}" wx:if="{{playIndex==detail.id}}" controls='{{controls}}' style="width:100%;height:{{videoHeight+'px'}}"></video>
+    <view id="{{detail.id}}" class="cover" style="display: {{playIndex==detail.id?'none':'block'}};" bindtap="videoPlay">
+      <image class="coverImg" src="{{fileDomain}}{{detail.image}}" mode="widthFix">
+        <image class="playImg" src="{{fileDomain}}{{detail.image}}" mode="widthFix"></image>
+      </image>
+    </view>
+    </view>
+  </view>
+  <view class='detailTitle'>
+    <view class='fristTop'>
+      <view class='voteTitle'>{{detail.title}}</view>
+      <view class='voteShare'>
+        <button class='shareBtn' open-type="share">分享</button>
+      </view>
+    </view>
+  </view>
+  <view class='order-detail'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>

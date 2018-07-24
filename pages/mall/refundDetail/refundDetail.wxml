@@ -1,0 +1,116 @@
+<!--退款订单详情-->
+<view class='row order'>
+  <view class='order-detail'>
+    <view class='order_table'>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          订单信息
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd ortitle'>
+          订单号
+        </view>
+        <view class='ordertd'>
+          <text>{{orders.id}}</text>
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd ortitle'>
+          下单时间
+        </view>
+        <view class='ordertd'>
+          <text>{{orders.confirmReceipt}}</text>
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd ortitle'>
+          订单状态
+        </view>
+        <view class='ordertd'>
+          <text>{{orderStatus}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--配送地址-->
+  <view class='order-detail'>
+    <view class='order_table'>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          配送信息
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd ortitle'>
+          收货人
+        </view>
+        <view class='ordertd'>
+
+          <text>{{address.consignee}}</text>
+          <text class='payname'>{{address.phone}}</text>
+
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd ortitle'>
+          退货地址
+        </view>
+        <view class='ordertd'>
+          <view>
+            <text>{{address.province}}{{address.city}}</text>
+            <text>{{address.county}}</text>
+            <text>{{address.street}}{{address.address}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd ortitle'>
+          邮编
+        </view>
+        <view class='ordertd'>
+          <text></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--购物清单-->
+  <view class='order-detail'>
+    <view class='order_table'>
+      <view class='ordertr borders'>
+        <view class='ordertd'>
+          购物清单
+        </view>
+      </view>
+      <!--列表-->
+      <block wx:for="{{orderProducts}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+        <view class='order_one'>
+          <view bindtap="goDetail" data-id="{{item.productId}}" class='navigator'>
+            <view class='pro-img'>
+              <image src="{{fileDomain}}{{item.product.imageIds}}"></image>
+            </view>
+            <view class='product-info-box'>
+              <text class='shoptitle'>{{item.product.title}}</text>
+              <text class='futile'>{{item.productRule.name}}</text>
+              <view class='nav_prive'>
+                <label class='red-price'>￥{{item.onePrice/100}}</label>
+                <label class='red-price' wx:if="{{item.integral!=0}}">+{{item.integral}}积分</label>
+                <label class='little-icon fr'>x{{item.number}}</label>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<!--退款进行中-->
+<view class='refundNav'>
+  <view class='mui-btn-outlined' bindtap='cancelRefund'>撤销退货申请</view>
+  <view class='mui-btn-outlined' bindtap='goHome'>返回店铺</view>
+</view>
+<!--已退款-->
+<view class='refundOk' style='display:none'>
+  <label>返回店铺</label>
+</view>

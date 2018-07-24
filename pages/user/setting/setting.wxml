@@ -1,0 +1,46 @@
+<!--pages/site/personalinfo/personalinfo.wxml-->
+<view class='session'>
+  <view class='signTian'>
+    <!--姓名-->
+    <view class='signTem border'>
+      <view class='nameText'>
+       姓名：
+      </view>
+      <view class='temRignt'>
+        <input class='integInput' bindinput='nameInput' value='{{name}}' placeholder="请填写姓名" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+    <!--手机号-->
+    <view class='signTem border'>
+      <view class='nameText'>
+        手机号：
+      </view>
+      <view class='codeRight'>
+        <input class="integInput" bindinput='phoneInput' value='{{mobile}}' placeholder="请填写手机号码" placeholder-style="color:#999"></input>
+      </view>
+      <view class='mcode'>
+        <button class="msg" disabled="{{disabled}}" data-id="2" bindtap="getVerificationCode">{{time}}</button>
+      </view>
+    </view>
+    <!--验证码-->
+    <view class='signTem border'>
+      <view class='nameText'>
+        验证码：
+      </view>
+      <view class='codeRight'>
+        <input class='integInput' bindinput='codeInput' value='' placeholder="请输入验证码" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+    <!--登录密码-->
+    <view class='signTem border'>
+      <view class='nameText' style='width:35%'>
+       登录密码：
+      </view>
+      <view class='temRignt'>
+        <input class='integInput' bindinput='passwordInput' value='' placeholder="请输入密码" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+  </view>
+  <!--end-->
+  <view class='mod_btn' bindtap='saveMember' style='margin-top:100rpx;background-color:#{{maninfo.tone}}'>确定修改</view>
+</view>

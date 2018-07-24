@@ -1,0 +1,349 @@
+<!--共用模板-->
+<!--首页栏目的渲染模板1（一行4个 一行4个）-->
+<template name="indexColumns1">
+  <view class='mall-list3' id="{{item1.id}}" bindtap="goDetail">
+    <view class='mall-list-img'>
+      <image src="{{fileDomain}}{{item1.imageIds}}"/>
+    </view>
+    <view class='shopbottom'>
+      <view class='mall_title'>
+        <label class='mall-listword'>{{item1.title}}</label>
+      </view>
+      <view class='shop-prive'>
+        <label class='fl privefont ku'>￥ {{item1.minPrice/100}}
+          <label wx:if="{{item1.rules[0].integral!=0}}">+{{item1.rules[0].integral}}积分</label>
+        </label>
+      </view>
+    </view>
+  </view>
+</template>
+<!--首页栏目的渲染模板1（两行6个 一行3个）-->
+<template name="indexColumns2">
+  <view class='mall-list' id="{{item1.id}}" bindtap="goDetail">
+    <view class='mall-list-img'>
+      <image src="{{fileDomain}}{{item1.imageIds}}" />
+    </view>
+    <view class='shopbottom'>
+      <view class='mall_title'>
+        <label class='mall-listword'>{{item1.title}}</label>
+      </view>
+      <view class='shop-prive'>
+        <label class='fl privefont'>￥ {{item1.minPrice/100}}
+          <label wx:if="{{item1.rules[0].integral!=0}}">+{{item1.rules[0].integral}}积分</label>
+        </label>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!--首页栏目的渲染模板1（一行2个）-->
+<template name="indexColumns3">
+  <view class='mall-list2' id="{{item1.id}}" bindtap="goDetail">
+    <view class='mall-list-img'>
+      <image src="{{fileDomain}}{{item1.imageIds}}"/>
+    </view>
+    <view class='shopbottom'>
+      <view class='mall_title'>
+        <label class='mall-listword'>{{item1.title}}</label>
+      </view>
+
+      <view class='shop-prive'>
+        <label class='fl privefont'>￥ {{item1.minPrice/100}}
+          <label wx:if="{{item1.rules[0].integral!=0}}">+{{item1.rules[0].integral}}积分</label>
+        </label>
+        <!-- <label class='kucun fr' wx:if="{{isPayPattern==1}}">已售{{item1.outNumber}}件</label> -->
+      </view>
+    </view>
+  </view>
+</template>
+
+<!--首页栏目的渲染模板可滚动-->
+<template name="indexColumns4">
+  <view class='mallsrcoll' id="{{item1.id}}" bindtap="goDetail">
+    <view class='srcollImg'>
+      <image src="/images/indexImg/sk2.png"/>
+    </view>
+    <view class='srcollBottom'>
+      <view class='mall_title'>
+        <label class='mall-listword'>晶钻黑玫瑰柔</label>
+      </view>
+    </view>
+  </view>
+  <view class='mallsrcoll' id="{{item1.id}}" bindtap="goDetail">
+    <view class='srcollImg'>
+      <image src="/images/indexImg/sk3.png"/>
+    </view>
+    <view class='srcollBottom'>
+      <view class='mall_title'>
+        <label class='mall-listword'>晶钻黑玫瑰柔</label>
+      </view>
+    </view>
+  </view>
+
+  <view class='mallsrcoll' id="{{item1.id}}" bindtap="goDetail">
+    <view class='srcollImg'>
+      <image src="/images/indexImg/sk1.png"/>
+    </view>
+    <view class='srcollBottom'>
+      <view class='mall_title'>
+        <label class='mall-listword'>晶钻黑玫瑰柔</label>
+      </view>
+    </view>
+  </view>
+
+</template>
+<!--详情页购物车底部导航-->
+<template name="cartNav">
+  <view class="detail-nav">
+    <view class='detail_car' bindtap="toCar">
+      <image src="/images/mall/indexImg/icon/cart.png"/>
+      <label>购物车</label>
+    </view>
+    <view bindtap="addCart" class="goods_half_half button-green color_fff">加入购物车</view>
+    <view bindtap="viewFlowerArea" class="goods_half_half button-red color_fff">立即购买</view>
+  </view>
+</template>
+
+<!--详情页mini版底部导航-->
+<template name="miniNav">
+  <view class="detail-nav">
+    <view class='detail_car padding' bindtap="online">
+      <button open-type="contact" class='onlineBtn'>
+        <image src="/images/mall/indexImg/icon/icon_xinxi.png"/>
+        <view>在线咨询</view>
+      </button>
+    </view>
+    <view class='detail_car padding'>
+      <button bindtap="call" class='onlineBtn'>
+        <image src="/images/mall/indexImg/icon/icon_dianhua.png"/>
+        <view>联系客服</view>
+      </button>
+    </view>
+    <view bindtap="addCart" class="goods_half_half button-green color_fff">收藏</view>
+    <view bindtap="subscribe" class="goods_half_half button-red color_fff" data-id="{{product.id}}">立即预约</view>
+  </view>
+</template>
+<!--秒杀导航-->
+<template name="skcknav">
+  <view class="detail-nav">
+    <view class='detail_car padding' bindtap="toCar">
+      <button class='onlineBtn'>
+        <image src="/images/mall/indexImg/icon/cart.png"/>
+        <view>购物车</view>
+      </button>
+    </view>
+    <view class='detail_car padding'>
+      <button open-type="contact" class='onlineBtn'>
+        <image src="/images/mall/indexImg/icon/icon_xinxi.png"/>
+        <view>在线咨询</view>
+      </button>
+    </view>
+    <view bindtap="addCart" class="goods_half_half button-green color_fff">加入购物车</view>
+    <view bindtap="goviewSkec" class="goods_half_half button-red color_fff {{isStart==2? 'btn_order':''}}" data-type="1">立即购买</view>
+  </view>
+</template>
+<!--开团-->
+<template name="groupNav">
+  <view class="detail-nav">
+    <view class='detail_car padding'>
+      <button open-type="contact" class='onlineBtn'>
+        <image src="/images/mall/indexImg/icon/icon_dianhua.png"/>
+        <view>联系客服</view>
+      </button>
+    </view>
+    <view bindtap="goviewzc" class="goods_half_half button-green color_fff" style='line-height:40rpx' data-type="0">
+      <view style='margin-top:10rpx'>￥{{selectRule.price/100}}</view>
+      <view>单独购买</view>
+    </view>
+    <view bindtap="insertsponsor" class="goods_half_half button-red color_fff {{isStart==2? 'btn_order':''}}" style='line-height:40rpx' data-type="1">
+      <view style='margin-top:10rpx'>￥{{skProduct.price/100}}</view>
+      <view>我要开团</view>
+    </view>
+  </view>
+</template>
+<!--搜索框-->
+<template name="search">
+  <view class="flex-wrp search_tem">
+    <view class="left-search">
+      <view class='icon-search' bindtap='searchShop'>
+        <image src='/images/mall/indexImg/icon/seachicon.png'/>
+      </view>
+      <input placeholder="请输入搜索的商品" placeholder-style="color:#333" focus="{{focus}}" class='search_input' bindinput="bindKeyInput" type='text' value='{{searchName}}'/>
+    </view>
+    <view class="flex-item megase">
+      <view class='icon-search' bindtap='openMessage'>
+        <image src='/images/mall/indexImg/icon/info.png' class='mesicon'/>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!--优惠卷-->
+<template name="coupon">
+  <view class="couOne {{item.inNumber==item.outNumber?'noCoupon':''}}">
+    <image src='/images/mall/indexImg/coupon.png' class='couImgbg'></image>
+    <view class='couTem'>
+      <view class='couleft'>
+        <view class='couPrice'>
+          <label class='font1'>￥</label>
+          <label class='font2'>{{item.faceValue/100}}</label>
+        </view>
+        <view class='coufont'>
+          <label wx:if="{{item.limit==0}}">所有商品可使用</label>
+          <label wx:if="{{item.limit!=0}}">订单满{{item.limit/100}}可使用</label>
+        </view>
+      </view>
+      <view class='couright'>
+        <view class='coufont'>
+          <label>有效期:</label>
+        </view>
+        <view class='datefont'>
+          {{item.start}}
+        </view>
+        <view class='datefont'>
+          {{item.end}}
+        </view>
+        <view class="useBtn {{item.disabled==true?'disabled':''}}" bindtap='insertcouponuser' data-id="{{item.id}}" data-in="{{item.inNumber}}" 
+          data-out=" {{item.outNumber}}">{{des}}</view>
+        </view>
+      </view>
+    </view>
+
+</template>
+<!--我的优惠卷-->
+<template name="coupon1 ">
+ <view class="couOne {{item.status==2||item.status==3? 'over': ''}}">
+      <image src='/images/mall/indexImg/coupon.png' class='couImgbg'></image>
+      <view class='couTem'>
+        <view class='couleft'>
+          <view class='couPrice'>
+            <label class='font1'>￥</label>
+            <label class='font2'>{{item.coupon.faceValue/100}}</label>
+            <!-- <label class='font3'>{{item.coupon.name}}</label> -->
+          </view>
+          <view class='coufont'>
+            <label wx:if="{{item.coupon.scope==1}}">所有商品可使用</label>
+            <label wx:if="{{item.coupon.scope==2}}">订单满{{item.coupon.limit}}元可使用</label>
+          </view>
+        </view>
+        <view class='couright'>
+          <view class='coufont'>
+            <label>有效期:</label>
+          </view>
+          <view class='datefont'>
+            {{item.coupon.start}}
+          </view>
+          <view class='datefont'>
+            {{item.coupon.end}}
+          </view>
+          <view class="useBtn {{item.status==2||item.status==3? 'couActive': ''}}" catchtap='couponuser' data-id="{{item.id}}" data-in="{{item.coupon.inNumber}}" data-out="{{item.coupon.outNumber}}"
+           data-status="{{item.status}}">{{item.des}}</view>
+        </view>
+      </view>
+    </view>
+</template>
+
+<!--秒杀-->
+<template name="skckills">
+ <view class='skdate' wx:if="{{select==1}}">
+  <view class='skLabel'>距结束剩</view>
+  <view>
+        <label class='numcont'>{{item.d}}</label>天
+        <label class='numcont'>{{item.h}}</label>时
+        <label class='numcont'>{{item.m}}</label>分
+        <label class='numcont'>{{item.s}}</label>秒
+  </view>
+</view> 
+<block wx:for="{{item.products}}" wx:for-index="index1" wx:for-item="item1" wx:key>
+ <view class="skOne {{item.products.length-1==index1? '': 'skboder'}}" data-id="{{item1.productId}}" data-skid="{{item.id}}"  data-start="{{select==1? '1': '2'}}">
+    <view class='skImg'>
+     <view class='yugao' wx:if="{{select==2}}">
+      <view class='yugouTip'>未开始</view>
+      </view>
+      <image src='{{fileDomain}}{{item1.productRule.image}}'></image>
+    </view>
+    <view class='skContent'>
+      <view class='skfont1'>
+        <label>{{item1.product.title}}</label>
+      </view>
+      <view class='skProgess'>
+       <view class='proyou' wx:if="{{select==2}}">限购{{item1.limitation}}件 | {{item.startTime}}开始</view>
+        <view class='progress' wx:if="{{select==1}}">
+        <progress percent="{{(item1.outNumber/item1.number)*100}}" activeColor="#f02804 " backgroundColor='#FFCCCB' stroke-width="12"/>
+        </view>
+        <label class='sktiop' wx:if="{{select==1&&item1.number>item1.outNumber}}">已抢{{item1.outNumber==''?0:item1.outNumber}}件</label>
+          <label class='sktiop' wx:if="{{select==1&&item1.number==item1.outNumber}}">已抢完</label>
+        </view>
+        <view class='skBottom'>
+          <view class='skprice'>
+            <view class='skfont2'>￥{{item1.productRule.price/100}}</view>
+            <view class='skfont3'>
+              <label style='font-size:24rpx'>￥</label>{{item1.price/100}}
+            </view>
+          </view>
+          <view class='skrigth'>
+            <block wx:if="{{select==1}}">
+              <view class='skBtn' wx:if="{{item.start==true&&item1.number>item1.outNumber}}" catchtap='goDetail' data-id="{{item1.productId}} " data-skid="{{item.id}}" data-start='1'>立即抢购</view>
+              <view class='noSkill' wx:if="{{item.start==true&&item1.number==item1.outNumber}}">已抢完</view>
+              <view class='skBtn' wx:if="{{item.start==false}}">已结束</view>
+            </block>
+            <block wx:else>
+              <view class='skBtn' catchtap='goDetail' data-id="{{item1.productId}}" data-skid="{{item.id}}" data-start='2'>先去看看</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+    </block>
+</template>
+
+<!--拼团-->
+<template name="groups">
+  <view class='skdate' wx:if="{{select==1}}">
+    <view class='skLabel'>距结束剩</view>
+    <view>
+      <label class='numcont'>{{item.d}}</label>天
+      <label class='numcont'>{{item.h}}</label>时
+      <label class='numcont'>{{item.m}}</label>分
+      <label class='numcont'>{{item.s}}</label>秒
+    </view>
+  </view>
+  <block wx:for="{{item.products}}" wx:for-index="index1" wx:for-item="item1" wx:key="key1">
+    <view class="skOne {{item.products.length-1==index1? '': 'skboder'}}" bindtap='goDetail' data-id="{{item1.productId}}" data-skid="{{item.id}}" data-start="{{select==1? '1': '2'}}">
+      <view class='skImg'>
+        <view class='yugao' wx:if="{{select==2}}">
+          <view class='yugouTip'>未开始</view>
+        </view>
+        <image src='{{fileDomain}}{{item1.productRule.image}}'></image>
+      </view>
+      <view class='skContent'>
+        <view class='skfont1'>
+          <label>{{item1.product.title}}</label>
+        </view>
+        <view class='skProgess'>
+          <image src='/images/mall/indexImg/icon/icon_duoren.png' class='groupImg'></image>
+          <label>{{item.number}}人团
+            <text wx:if="{{select==2}}">| {{item.startTime}}开始</text>
+          </label>
+        </view>
+        <view class='skBottom'>
+          <view class='skprice'>
+            <view class='skfont2'>￥{{item1.productRule.price/100}}</view>
+            <view class='skfont3'>
+              <label style='font-size:24rpx'>￥</label>{{item1.price/100}}
+            </view>
+          </view>
+          <view class='skrigth'>
+            <block wx:if="{{select==1}}">
+              <view class='skBtn' wx:if="{{item.start==true}}" catchtap='goDetail' data-id="{{item1.productId}}" data-skid="{{item.id}} " data-start='1'>去开团</view>
+              <view class='skBtn' wx:if="{{item.start==false}}">已结束</view>
+            </block>
+            <block wx:else>
+              <view class='skBtn' catchtap='goDetail' data-id="{{item1.productId}}" data-skid="{{item.id}}" data-start='2'>先去看看</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</template>

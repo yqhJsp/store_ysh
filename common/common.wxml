@@ -1,0 +1,2 @@
+<!--common/common.wxml-->
+<import src="../plugin/wxParse/wxParse.wxml"/>

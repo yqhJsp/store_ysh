@@ -1,0 +1,73 @@
+<!--多门店首页-->
+<import src="../template/template" />
+<scroll-view>
+  <!--banner-->
+  <view class='storeBanner'>
+    <swiper indicator-dots="false" autoplay="false" interval="3000" duration="500" circular="true" indicator-active-color="#ccc" class='view_banner'>
+      <block wx:for="{{maninfo.imagesIds}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+        <swiper-item>
+          <image src="{{fileDomain}}{{item}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!--服务卡-->
+  <view class='serviceList'>
+    <!--普通会员-->
+    <view class='view-table-view' wx:if="{{putong.length>0}}">
+      <view class='nav-list'>
+        <view class='view-list-title'>
+        <view class='store-line'><label>普通服务卡 </label></view>
+        <view class='line'>
+        <view class='raduio-left'></view>
+        <view class='line-left fl'></view>
+        <view class='line-right fr'></view>
+        <view class='raduio-rigth'></view>
+        </view>
+          <!-- <label>普通服务卡 </label> -->
+        </view>
+        <view class='view-store'>
+          <block wx:for="{{putong}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+            <template data="{{item,fileDomain}}" is="service1"></template>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!--股东会员-->
+    <view class='view-table-view' wx:if="{{gudong.length>0}}">
+      <view class='nav-list'>
+        <view class='view-list-title'>
+        <view class='store-line'><label>股东会员卡 </label></view>
+        <view class='line'>
+        <view class='raduio-left'></view>
+        <view class='line-left fl'></view>
+        <view class='line-right fr'></view>
+        <view class='raduio-rigth'></view>
+        </view>
+        </view>
+        <view class='view-mall'>
+          <block wx:for="{{gudong}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+            <template data="{{item,fileDomain}}" is="service2"></template>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--门店列表-->
+  <view class='storeBttom'>
+    <view class='storeTitle'>
+      <view class='storeTab'>
+        <view class="tabOne {{currentab==2 ? 'tavtive' : ''}}" data-type="2" catchtap='switchTab'>人气最高</view>
+        <view class="tabOne mleft {{currentab==1 ? 'tavtive' : ''}}" data-type="1" catchtap='switchTab'>距离最近</view>
+      </view>
+    </view>
+    <!--列表-->
+    <view class='storeList'>
+      <!--循环-->
+      <block wx:for="{{infos}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+        <template is="storetem" data="{{item,fileDomain,rang,dw,maninfo}}"></template>
+      </block>
+      <!--end-->
+    </view>
+  </view>
+</scroll-view>

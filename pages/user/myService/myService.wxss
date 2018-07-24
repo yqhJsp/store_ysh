@@ -1,0 +1,9 @@
+/* pages/user/myService/myService.wxss */
+@import '../../template/template.wxss';
+page{
+  background:#f5f5f5
+}
+.signList{
+margin:50rpx 0;
+padding:0 40rpx
+}

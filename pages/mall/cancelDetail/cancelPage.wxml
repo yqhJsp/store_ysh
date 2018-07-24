@@ -1,0 +1,34 @@
+<!--取消订单-->
+<view class='row'>
+        <view class='view_cancel'>
+                <view class='order_table'>
+                        <view class='ordertr'>
+                                <view class='ordertd ortitle'>
+                                        <label>订单状态：</label>
+                                </view>
+                                <view class='ordertd'>
+                                        <label class='privefont'>订单已取消</label>
+                                </view>
+                        </view>
+                        <view class='ordertr'>
+                                <view class='ordertd ortitle'>
+                                        <label>订单编号：</label>
+                                </view>
+                                <view class='ordertd'>
+                                        <label>{{cancel.cancelId}}</label>
+                                </view>
+                        </view>
+                        <view class='ordertr'>
+                                <view class='ordertd ortitle'>
+                                        <label>下单时间：</label>
+                                </view>
+                                <view class='ordertd'>
+                                        <label>{{cancel.createTime}}</label>
+                                </view>
+                        </view>
+                </view>
+           <view class='save_cont'>
+         <button class='mod_btn' bindtap='goHome'>返回首页</button>
+        </view>
+        </view>
+</view>

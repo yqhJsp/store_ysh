@@ -1,0 +1,2 @@
+<!--pages/mall/expressage/expressage.wxml-->
+<web-view src="https://spa.sefve.com/manage/api/express/html?code={{code}}&number={{number}}"></web-view>

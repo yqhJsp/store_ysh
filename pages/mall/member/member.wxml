@@ -1,0 +1,50 @@
+<!--pages/site/member/member.wxml-->
+<view class="session">
+  <view class='back'>
+    <image class='bgCall' src="/images/mall/indexImg/memberbg.png" mode="widthFix"></image>
+  </view>
+  <view class="userinfo" wx:if="{{getMember.isRole==2||getMember.isRole==''}}">
+  <view class='nomember'>您暂时不是会员</view>
+  </view>
+  <!--会员-->
+  <view class="userinfo" wx:if="{{getMember.isRole==1}}">
+    <image class="userinfo-avatar" src="/images/mall/indexImg/carts.png" mode="widthFix"></image>
+    <view class='storeName'>{{maninfo.navigation}}</view>
+    <view class='storeNum'>N{{getMember.id}}</view>
+  </view>
+</view>
+
+<view class='memberCont'>
+  <view class='signTian'>
+  <view class='signTem border' bindtap='goIntel' data-type="1" wx:if="{{shopInfo.type==2&&shopInfo.isIntegral==1}}">
+      <view class='nameText'>
+        积分
+      </view>
+      <view class='temRignt'>
+        <label class='intelnum'>{{intelTatol}}</label>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <view class='signTem border' bindtap='goMembers' data-type="2">
+      <view class='nameText'>
+        个人信息
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <view class='signTem' bindtap='goMemberDetail' data-type="2" style='display:none'>
+      <view class='nameText'>
+        会员卡详情
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!--end-->
+<!--不是会员时-->
+<view class='noMember' wx:if="{{getMember.isRole==2||getMember.isRole==''}}">
+<view class='mod_btn' bindtap='goMembers' style=' background:#{{maninfo.tone}}'>领取会员卡</view>
+</view>

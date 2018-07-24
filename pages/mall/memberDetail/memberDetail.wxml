@@ -1,0 +1,6 @@
+<!--会员卡详情-->
+<include src="../../../common/common.wxml"></include>
+<view class='mtitle'>会员卡详情</view>
+<view class='mcontent'>
+ <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+</view>

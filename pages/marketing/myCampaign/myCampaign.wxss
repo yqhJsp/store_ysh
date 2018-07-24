@@ -1,0 +1,158 @@
+/* 我要推广 */
+.compaignTop{
+  height:308rpx;
+  width: 100%;
+  position: relative
+}
+.compaignTop .combg{
+width: 100%;
+position: absolute;
+z-index:10;
+top: 0;
+left: 0
+}
+.compaignInfo {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size:34rpx;
+}
+/*提示*/
+.comTip{
+width: 279rpx;
+height:182rpx;
+margin: 0 auto;
+margin-top: 80rpx;
+}
+.comData{
+ margin-top: 70rpx; 
+ text-align:center;
+ color: #fff
+}
+.comfont{
+ font-size:28rpx 
+}
+.comMoney{
+ font-size:60rpx 
+}
+.comBtn{
+  margin-top:30rpx;
+  width:247rpx;
+  height:68rpx;
+  color: #f44336;
+  font-size:28rpx;
+  border-radius:50rpx;
+  background: #fff;
+  line-height:68rpx
+}
+/*分销说明*/
+.compainDes{
+ margin:150rpx 30rpx 0 30rpx;
+ border: 1rpx solid #ccc;
+ border-radius:16rpx;
+ min-height:200rpx;
+ padding:30rpx
+}
+.comTitle{
+  font-size:28rpx;
+  padding-left:15rpx
+}
+.comIcon{
+  width: 31rpx;
+  height: 31rpx;
+  display:inline-block
+}
+.comDes{
+  margin-top:50rpx;
+  font-size:24rpx;
+  color: #666
+}
+
+/*分销记录*/
+.comAlldom{
+  width:100%;
+  margin-top:50rpx
+}
+.comTab{
+ width:312rpx;
+ margin:0 auto;
+ height:80rpx;  
+ display:flex;
+ flex-flow:row;
+}
+.tabOne{
+ font-size: 28rpx;
+ color:#333;
+ width:50%;
+ text-align: center;
+ line-height:80rpx
+}
+.line{
+  line-height:80rpx 
+}
+.active{
+  border-bottom:2rpx #f44336 solid
+}
+.comList{
+  margin-top: 20rpx;
+  padding:0 30rpx;
+}
+.comOne{
+ display:flex;
+ flex-flow:row;
+ font-size:28rpx;
+ padding:30rpx 0;
+ height:80rpx;
+ border-bottom:1rpx solid #ccc
+}
+.oneLeft{
+  width:20%;
+}
+.oneConter{
+  width:60%;
+  padding-top:10rpx
+}
+.onecenter{
+  width:80%;
+  padding-top:10rpx  
+}
+.oneRight{
+  width:20%;
+  text-align:right;
+}
+.comhear{
+  width:83rpx;
+  height:83rpx;
+  border-radius:100%
+}
+.oneTitle{
+  font-size:28rpx;
+  color:#333
+}
+.oneDate{
+  font-size:24rpx;
+  color: #999
+}
+.yongjin{
+  color:#f44336;
+  font-size:40rpx;
+}
+.yongtilte{
+  font-size:24rpx;
+  color: #333 
+}
+.gofen{
+  width:510rpx;
+  position:absolute;
+  bottom:60rpx;
+  left:20%;
+  background:#f44336;
+  color: #fff;
+  font-size:28rpx;
+  height:93rpx;
+  text-align: center;
+  border-radius:50rpx;
+  line-height:93rpx
+}

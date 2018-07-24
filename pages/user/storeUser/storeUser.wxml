@@ -1,0 +1,232 @@
+<!--pages/site/signUser/signUser.wxml-->
+<view class='userTop' style='background-color:#{{maninfo.tone}}' wx:if="{{member.userInfo.avatarUrl!=''}}"></view>
+<view class='session' wx:if="{{member.userInfo.avatarUrl!=''}}">
+  <view class='top'>
+    <view class='indexLogo'>
+      <view class='useIcon'>
+        <image src='{{member.userInfo.avatarUrl}}' wx:if="{{member.userInfo.avatarUrl!=''}}"></image>
+      </view>
+      <view class='userRigth'>
+        <view class='userNmae' wx:if="{{member.realName==''}}">
+          <label>{{member.userInfo.nickName}}</label>
+          <label style='color:#{{maninfo.tone}}'></label>
+        </view>
+        <view class='userNmae' wx:if="{{member.realName!=''}}">
+          <label>{{member.realName}}</label>
+        </view>
+
+        <view class='userMember'>{{member.childrenInfo.name}}</view>
+      </view>
+    </view>
+    <!--积分-->
+    <view class='userLevel' style='background:#{{maninfo.tone}}'>
+      <view class='level' bindtap='goGudong' data-item="1">
+        <view>推广余额</view>
+        <view>{{myBalanceSum}}</view>
+      </view>
+      <view class='level bleft' bindtap='goInteg' data-type="1">
+        <view>积分</view>
+        <view>{{integralSum}}</view>
+      </view>
+      <view class='level bleft' bindtap='goInteg' data-type="3">
+        <view>银积分</view>
+        <view>{{yinIntelall}}</view>
+      </view>
+    </view>
+  </view>
+  <!--我的订单-->
+  <view class='signTian'>
+    <view class='signTem border' data-type="2">
+      <view class='userLeft'>
+        我的订单
+      </view>
+    </view>
+    <!--订单快捷-->
+    <view class="navs">
+      <view class="nav-item" bindtap="toOrder" id="1">
+        <label class='badge' wx:if="{{orderNum.unpaid!=0}}">{{orderNum.unpaid}}</label>
+        <view class='topimg'>
+          <image src="/images/mall/indexImg/icon/icon_payment.png" class="nav-image" mode='widthFix' />
+        </view>
+        <text>待付款</text>
+      </view>
+      <view class="nav-item" bindtap="toOrder" id="2">
+        <label class='badge' wx:if="{{orderNum.pendingshipment!=0}}">{{orderNum.pendingshipment}}</label>
+        <view class='topimg'>
+          <image src="/images/mall/indexImg/icon/icon_send.png" class="nav-image" mode='widthFix' />
+        </view>
+        <text>待发货</text>
+      </view>
+      <view class="nav-item" bindtap="toOrder" id="6">
+        <label class='badge' wx:if="{{orderNum.shipped!=0}}">{{orderNum.shipped}}</label>
+        <view class='topimg'>
+          <image src="/images/mall/indexImg/icon/icon_goods.png" class="goods-image" mode='widthFix' />
+        </view>
+        <text>待收货</text>
+      </view>
+      <view class="nav-item" bindtap="toOrder" id="3">
+        <label class='badge' wx:if="{{orderNum.over!=0}}">{{orderNum.over}}</label>
+        <view class='topimg'>
+          <image src="/images/mall/indexImg/icon/icon_evaluate.png" class="nav-image" mode='widthFix' />
+        </view>
+        <text>已完成</text>
+      </view>
+      <view class="nav-item" bindtap="toOrder" id="5">
+        <label class='badge' wx:if="{{orderNum.rights!=0}}">{{orderNum.rights}}</label>
+        <view class='topimg'>
+          <image src="/images/mall/indexImg/icon/icon_Return.png" class="nav-image" style='height:34rpx' />
+        </view>
+        <text>退款</text>
+      </view>
+    </view>
+  </view>
+
+  <!--支付模式-->
+  <view class='signTian'>
+    <!--我邀请的会员-->
+    <view class='signTem border' bindtap='goMyMembers'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon1.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        我邀请的会员
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <!--我邀请的股东会员-->
+    <view class='signTem border' bindtap='goGudong' data-item="2">
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon2.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        我邀请的股东会员
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <!--我的银行卡-->
+    <view class='signTem border' bindtap='goCard'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon3.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        我的银行卡
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <!--我的积分-->
+    <view class='signTem border' bindtap='goInteg' data-type="1" style='display:none'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon_wodejifen.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        我的积分
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <!--我的银积分-->
+    <view class='signTem border' bindtap='goInteg' data-type="3" style='display:none'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon_wodejifen.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        我的银积分
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <!--推广余额-->
+    <view class='signTem border' bindtap='goBalance' style='display:none'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon_wodejifen.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        我的推广余额
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>  
+    </view>
+    <!--我购买的服务-->
+    <view class='signTem border' bindtap='goService'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon4.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        我购买的服务
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <!--我的购物车-->
+    <view class='signTem border' bindtap='goCart'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon5.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        我的购物车
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <view class='signTem border' bindtap='getAddress'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon_wodeshouhuodizhi.png' class='userIcon' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        收货地址
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+    <!--设置-->
+    <view class='signTem' bindtap='goSetting'>
+      <view class='name'>
+        <image src='/images/mall/indexImg/person/icon_shezhi.png' class='mydist' mode='widthFix'></image>
+      </view>
+      <view class='nameText'>
+        设置
+      </view>
+      <view class='temRignt'>
+        <image src='/images/mall/indexImg/icon/icon-arrow.png' class='goIcon'></image>
+      </view>
+    </view>
+  </view>
+  <!--end-->
+</view>
+<!--预加载-->
+<view class='loadView' wx:if="{{isLoad}}">
+  <image src='/images/mall/indexImg/yuload.gif' mode='widthFix' class='loadImg'></image>
+</view>
+<!--未授权-->
+<view class='noMember' wx:if="{{member.userInfo.avatarUrl==''}}">
+  <button class='getUser' style='background:#{{maninfo.tone}}' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>
+
+<!--登录的弹窗-->
+<view class="commodity_screen" wx:if="{{showModalStatus}}">
+  <view class="modalPop">
+    <view class='modelTitle'>请输入密码</view>
+    <view class='popContent'>
+      <view class='password'>
+        <view class='passName'>密码：</view>
+        <input class='integInput' bindinput='passInput' placeholder="密码与登录密码一样" placeholder-style="color:#999" type='password'></input>
+      </view>
+    </view>
+    <view class='popBottom'>
+      <view class='cancelBtn' bindtap="hideModal">取消</view>
+      <view class='confirmBtn' bindtap='confirm'>确定</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,194 @@
+<!--共用模板-->
+<!--导航-->
+<template name="miniNav">
+  <view class="detail-nav">
+    <view class="view-left-search">
+      <view class='mall-icon-search'>
+        <image src='/images/store/indexImg/edit.png' />
+      </view>
+      <view data-id='{{details.id}}' placeholder="写评论" placeholder-style="color:#333" class='search' bindtap='bindSearch' data-type="1">写评论</view>
+    </view>
+    <view class='commentab'>
+      <view class='onlineBtn' bindtap='getLikenum'>
+        <image src="/images/store/indexImg/icon_dianzan_nor.png" class='dIcon2' wx:if="{{isLikenum==false}}" />
+        <image src="/images/store/indexImg/icon_dianzan_sel.png" class='dIcon2' wx:if="{{isLikenum==true}}" />
+        <view class='descont'> {{details.likenum}}</view>
+      </view>
+    </view>
+    <view class='commentab'>
+      <view class='onlineBtn' bindtap='insertreinformationmember'>
+        <image src="/images/store/indexImg/icon_shouchang_nor.png" class='dIcon2' wx:if="{{isCollect==1}}" />
+        <image src="/images/store/indexImg/icon_shouchang_sel.png" class='dIcon2' wx:if="{{isCollect==2}}" />
+        <view class='descont'> {{details.collectCount}}</view>
+      </view>
+    </view>
+    <view class='commentab' bindtap="online">
+      <button class='onlineBtn' open-type="share">
+        <image src="/images/store/indexImg/icon_fenxiang_nor.png" class='dIcon1' mode='widthFix' />
+      </button>
+    </view>
+  </view>
+</template>
+<!--优惠卷模板-->
+<template name="coupontem">
+  <view class="couponOne {{item.length-1==index?'mtright':''}}">
+    <view class='couLeft'>
+      <view class='couRed'>
+        <label class='coutip' style='color:#{{maninfo.tone}}'>￥</label>
+        <label class='couprice' style='color:#{{maninfo.tone}}'>{{item.faceValue/100}}</label>
+      </view>
+      <view class='coudate'>
+        <label>有效起至：</label>
+        <label>{{item.start}}-{{item.end}}</label>
+      </view>
+      <view class='coubttom'>
+        <label>适用于：{{item.childrenInfo==''?'所有门店':item.childrenInfo.name}}</label>
+        <label wx:if="{{item.scope==2}}">（满{{item.limit/100}}元可用）</label>
+      </view>
+    </view>
+    <view class='couRigth'>
+      <view class='getcoup' style='background:#{{maninfo.tone}}' wx:if="{{item.userStatus==0}}" bindtap='addcoupon' data-idx="{{item.id}}">
+        <view class='coufont'>立即领取</view>
+      </view>
+      <view class='delcoup' wx:if="{{item.userStatus==1}}">
+        <view>已领取</view>
+      </view>
+      <view class='delcoup' wx:if="{{item.userStatus==2}}">
+        <view>已过期</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!--门店列表-->
+<template name="storetem">
+  <view class="storeOne" bindtap='goStore' data-id="{{item.id}}">
+    <view class='storeLeft'>
+      <image src='{{fileDomain}}{{item.image}}'></image>
+    </view>
+    <view class='storeCenter'>
+      <view class='centerTitle'>{{item.name}}</view>
+      <view class='centerIcon'>
+        <block wx:for="{{item.tags}}" wx:for-index="index" wx:for-item="item1" wx:key="key">
+          <view class='storeCon'>{{item1}}</view>
+        </block>
+      </view>
+      <view class='centerAddress'>
+        <image src='/images/store/indexImg/adicon.png' class='signicon'></image>
+        <label class='address'>{{item.address}}</label>
+      </view>
+    </view>
+    <view class='storeRigth'>
+      <view class='callBtn' style='background:#{{maninfo.tone}}' catchtap='goCall' data-phone="{{item.phone}}">联系TA</view>
+      <view class='distance'>{{item.range==''?'':item.distance}}{{item.range==''?'':dw}}</view>
+    </view>
+  </view>
+</template>
+
+<!--首页栏目的渲染模板（三图片）-->
+<template name="indexColumns1">
+  <view class='mall-list' data-index="{{index}}" bindtap='preview'>
+    <view class='mall-list-img'>
+      <image src="{{fileDomain}}{{img}}"/>
+    </view>
+  </view>
+</template>
+<!--首页栏目的渲染模板（有边距单图片)-->
+<template name="indexColumns2">
+  <view class='mall-padding'>
+    <image src="/images/store/indexImg/st3.jpg" mode="widthFix"></image>
+  </view>
+</template>
+
+<!--首页服务卡列表-->
+<template name="service1">
+  <view class='service-list'  bindtap='goSDetail' data-id="{{item.id}}" data-type="1">
+    <view class='mall-list-img'>
+      <image src="{{fileDomain}}{{item.image}}"/>
+    </view>
+    <view class='shopbottom'>
+      <view class='mall_title'>
+        <label class='mall-listword'>{{item.name}}</label>
+      </view>
+      <view class='shop-prive'>
+        <label class='privefont'>￥{{item.price/100}}</label>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="service2">
+  <view class='service-list2' bindtap='goSDetail' data-id="{{item.id}}"  data-type="2">
+    <view class='mall-list-img'>
+      <image src="{{fileDomain}}{{item.image}}"/>
+    </view>
+    <view class='shopbottom'>
+      <view class='mall_title'>
+        <label class='mall-listword'>{{item.name}}</label>
+      </view>
+      <view class='shop-prive'>
+        <label class='privefont'>￥{{item.price/100}}</label>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!--我的预约列表-->
+<template name="mydiscover">
+  <view class='mydistOne'>
+    <view class='mydistLeft'>
+      <image src='{{fileDomain}}{{item.children.image}}'></image>
+    </view>
+    <view class='mydistCenter'>
+      <view class='mydistTitle'>{{item.children.name}}</view>
+      <view class='mydistDate'>
+        <label>预约时间：</label>
+        <label>{{item.time}}</label>
+      </view>
+    </view>
+    <view class='mydistRigth'>
+      <view class='mydistip'>预约成功</view>
+      <view class='mydistBtn' bindtap='goConsultDetail' data-id="{{item.id}}">查看详情</view>
+    </view>
+  </view>
+</template>
+
+<!--我的收藏-->
+<template name="collection">
+  <view class='disone' bindtap='goDetail' data-id="{{item.informationId}}">
+    <view class='info'>
+      <!--复选框-->
+      <view class='selectOne' wx:if="{{edtilStatus==1}}">
+        <view class="checkBox {{item.check==0?'':'active'}}" catchtap='checked' data-id="{{item.id}}" data-select='{{item.check}}' style="background-color:#{{item.check==0?'':maninfo.tone}}">
+          <checkbox value="" class='carbox' />
+        </view>
+      </view>
+      <view class='inforight' style='text-align: left;'>
+        <image src="{{fileDomain}}{{item.information.image}}"></image>
+      </view>
+      <view class='infoletf'>
+        <view class='title'>{{item.information.title}}</view>
+        <view class='disbottom'>
+          <view class='disread'>
+            <image src='/images/store/indexImg/icon_liulang.png' class='ydImg' mode='widthFix'></image>
+            <label>{{item.information.eyenum==''?0:item.information.eyenum}}</label>
+          </view>
+          <view class='disread'>
+            <image src='/images/store/indexImg/hf.png' class='hfImg' mode='widthFix'></image>
+            <label> {{item.information.count==''?0:item.information.count}}</label>
+          </view>
+          <view class='disread'>
+            <image src='/images/store/indexImg/thumbs.png' class='dzImg' mode='widthFix'></image>
+            <label>{{item.information.likenum==''?0:item.information.likenum}}</label>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<!--无数据-->
+<template name="noData">
+  <view class="tab-content1">
+    <image src='/images/store/indexImg/no.png' class='tab-image' mode='widthFix'></image>
+  </view>
+</template>

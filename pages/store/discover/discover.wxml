@@ -1,0 +1,28 @@
+<!--pages/site/discover/discover.wxml-->
+<import src="../template/template" />
+<view class='distop' wx:if="{{topics.length>0}}">
+  <scroll-view scroll-x="true">
+    <view class='distab' scroll-x="true">
+      <block wx:for="{{topics}}" wx:key="key">
+        <view class='tabOne {{item.active==true?"tavtive":""}}' data-tid='{{item.id}}' bindtap='clickInfos'>{{item.name}}</view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view class='discontent'>
+  <!--循环-->
+  <block wx:for="{{infos}}" wx:key="key">
+    <view class='topImg' data-id='{{item.id}}' bindtap='openInfo'>
+      <image src='{{fileDomain}}{{item.image}}'></image>
+      <view class='tuwen-mb'>
+        <label>{{item.title}}</label>
+      </view>
+    </view>
+  </block>
+  <!--end-->
+  <!--无数据-->
+  <view class="tab-content1" wx:if="{{infos.length==0}}">
+    <image src='/images/comImg/no_data.png' class='tab-image' mode='widthFix'></image>
+  </view>
+
+</view>

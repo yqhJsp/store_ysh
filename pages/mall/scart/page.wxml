@@ -1,0 +1,65 @@
+<!--pages/mall/scart/page.wxml-->
+<!--购物车数据-->
+<view wx:if="{{isPayPattern==1}}">
+  <view class="top" wx:if="{{list.length!=0}}">
+    <view class="checkbox_item {{allSelectStatus==0?'':'active'}}" bindtap="allSelect">
+      <checkbox value="" checked="" />
+    </view>
+    <label class="small_text">全选</label>
+  </view>
+  <scroll-view class="scroll">
+    <view class="separate"></view>
+    <view class='cart_container'>
+      <block wx:for="{{list}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+        <!--循环购物-->
+        <view class="cart_item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+          <view class='content'>
+            <view class='cart_left'>
+              <view class="checkbox_item {{item.check==0?'':'active'}}" data-id='{{item.id}}' data-select='{{item.check}}' catchtap='addProduct'>
+                <checkbox value="" checked="" class='carbox' />
+              </view>
+            </view>
+            <view class='cart_rigtht' id="{{item.product.id}}" bindtap="goDetail">
+              <view class='thumbnails'>
+                <image class="thumbnails_img" src='{{fileDomain}}{{item.product.imageIds}}'></image>
+              </view>
+              <!--商品信息-->
+              <view class='cart_info' data-type='1'>
+                <text class='shop_title'>{{item.product.title}}</text>
+                <text class='futile'>{{item.productRule.name}}</text>
+                <view class='nav_prive'>
+                  <label class='red-price'>￥{{item.productRule.price/100}}</label>
+                   <label class='red-price' wx:if="{{item.productRule.integral!=0}}">+{{item.productRule.integral}}积分</label> 
+                  <view class="count_control display-flex-row" style='float:right;margin-top:-10rpx'>
+                    <span class="item_reduce item_btn item_btn_left" catchtap="goodRefund" data-id="{{item.id}}" data-select='{{item.check}}'>-</span>
+                    <span class="item_num">{{item.number}}</span>
+                    <span class="item_add item_btn item_btn_right" catchtap="goodAdd" data-id="{{item.id}}" data-select='{{item.check}}'>+</span>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="del" catchtap="del" data-index="{{item.id}}">删除</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view class="bottom_total" wx:if="{{isPayPattern==1&&list.length!=0}}">
+  <view class="row">
+    <text class='rowCar'>合计:<text class="price">￥ </text></text>
+    <text class="price rowCar">{{total/100}}</text>
+    <button class="button-red rowCar" bindtap="toBuy" formType="submit">去结算({{counts}})</button>
+  </view>
+</view>
+<!--无数据时-->
+<view class="tab-content1" wx:if="{{list.length==0}}">
+  <image src='/images/mall/nodata/icon_konggouwuche.png' class='tab-image'></image>
+  <view>
+    <view class='cartBtn' bindtap='goIndex' style='background-color:#{{maninfo.tone}}'>去逛逛</view>
+  </view>
+</view>
+<!--预加载-->
+<view class='loadView' wx:if="{{isLoad}}">
+  <image src='/images/mall/indexImg/yuload.gif' mode='widthFix' class='loadImg'></image>
+</view>

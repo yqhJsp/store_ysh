@@ -1,0 +1,20 @@
+<!--店铺公告-->
+<view class='view-message'>
+        <view class='view-message-table'>
+                        <block  wx:for="{{list}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+                        <view class='view-table-cell'>
+                        <view class='view-message-top'>
+                                <label class='view-message-title'>{{item.title}}</label>
+                                <label class='view-message-date'>{{item.start}}</label>
+                        </view>
+                        <view class="view-message-content {{item.check==0?'view-ellipsis-2':''}}">
+                                <text>{{item.content}}</text>
+                        </view>
+                        <view class='view-media-body'>
+                                <button class="view-btn {{item.check==1?'active':''}}" hover-class='view-hoverbtn'  bindtap='open' data-id="{{item.id}}" data-select='{{item.check}}'>{{item.msg}}</button>
+                        </view>
+                </view>
+                        </block>
+                
+        </view>
+</view>

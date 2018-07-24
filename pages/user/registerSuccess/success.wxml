@@ -1,0 +1,12 @@
+<!--支付成功界面-->
+<view class='session'>
+  <view class='successTop'>
+    <image class='successImg' src='/images/comImg/success.png'></image>
+    <view class='successMsg'>恭喜您！注册成功。</view>
+  </view>
+  <view class='success-tip success-tab'>
+    <label class='success-btn' bindtap='goHome'>返回首页</label>
+    <label class='success-btn' bindtap='goShop'>前往商城</label>
+  </view>
+  <!--商品列表-->
+</view>

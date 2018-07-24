@@ -1,0 +1,110 @@
+/* pages/vote/oneDetail/oneDetail.wxss */
+.row{
+   box-sizing: border-box;
+   font-size: 26rpx;
+   position: relative;
+   margin-bottom:100rpx
+}
+.coverImg{
+  width: 100%;
+}
+.consulTitle{
+  padding:30rpx;
+  background:#fff;
+}
+.detailTitle {
+  padding:20rpx 30rpx;
+  margin: 20rpx 0 0 0;
+  position: relative;
+  background:#fff
+}
+.fristTop {
+  display: flex;
+  flex-flow: row;
+}
+.voteTitle {
+  font-size:30rpx;
+  color: #333;
+  width:100%;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+}
+.serviceDay{
+  font-size:28rpx;
+  margin-top:20rpx;
+  color:#999
+}
+.serviceTem{
+  display: flex;
+  flex-flow: row;
+  margin-top:30rpx  
+}
+.price {
+  width: 70%;
+  color: red;
+  font-size: 46rpx;
+  margin: 10rpx;
+}
+.voteShare {
+  text-align: right;
+  display: block;
+  width: 30%;
+}
+.shareBtn {
+  width: 162rpx;
+  color: #f44336;
+  border: 1rpx solid #f44336;
+  height: 52rpx;
+  line-height:52rpx;
+  font-size: 28rpx;
+  text-align: center;
+  border-radius:8rpx;
+  display: inline-block;
+  margin: 10rpx;
+}
+button::after {
+  width: 0;
+  height: 0;
+}
+.voteBtn {
+  background: red;
+  color: #fff;
+  display: block;
+  border: 0;
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  bottom: 0;
+  left: 0;
+}
+/*弹窗*/
+.modalPop{
+  width:75%
+}
+.popContent{
+ width:100%;
+ height:200rpx;
+ margin-top:20rpx;
+ text-align:center
+}
+.pimages{
+ width:200rpx;
+ height:200rpx   
+}
+.voteTip{
+  text-align: center;
+  font-size:28rpx;
+  padding:50rpx 20rpx
+
+}
+.report{
+ padding:0 40rpx;
+}
+
+

@@ -1,0 +1,161 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.tabView {
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  padding: 10rpx 20rpx;
+  position: relative;
+}
+
+.tabActive {
+  background-color: #f44336;
+}
+
+.skdate {
+  height: 100rpx;
+  width: 70%;
+}
+
+.skLabel {
+  margin: 10rpx 0;
+  font-size: 26rpx;
+}
+
+.numdate {
+  font-size: 24rpx;
+}
+
+.numcont {
+  height: 30rpx;
+  width: 30rpx;
+  padding: 5rpx;
+  background: #ff5638;
+  color: #fff;
+  border-radius: 8rpx;
+  margin: 0 10rpx 0 0;
+  display: inline-block;
+  text-align: center;
+}
+
+.voteSign {
+  width: 30%;
+  position: relative;
+}
+
+.signBtn {
+  position: absolute;
+  width: 150rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  font-size: 24rpx;
+  color: #ff5638;
+  border: 1rpx solid #ff5638;
+  border-radius: 8rpx;
+  text-align: center;
+  top: 20rpx;
+}
+
+.skOne {
+  display: flex;
+  flex-flow: row;
+  height: 100rpx;
+  overflow: hidden;
+  padding: 20rpx 20rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.skboder {
+  border-bottom: 1rpx solid #dedede;
+}
+
+.skImg {
+  width: 110rpx;
+  height: 100rpx;
+  position: relative;
+}
+
+.skImg image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+}
+
+.skContent {
+  width: 70%;
+  position: relative;
+  margin-left: 30rpx;
+}
+
+.skfont1 {
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.skfont2 {
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.sktiop {
+  color: #999;
+  margin: 5rpx 0 0 15rpx;
+}
+
+.skprice {
+  width: 60%;
+}
+
+.skLeft {
+  width: 20%;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 160rpx;
+}
+
+.skBtn, .noSkill {
+  width: 160rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  margin-top: 25rpx;
+}
+
+.skBtn {
+  background: #f44336;
+  color: #fff;
+}
+
+/*团购*/
+
+.groupImg {
+  width: 36rpx;
+  height: 29rpx;
+  margin-right: 10rpx;
+}
+
+.voteBtn {
+  background: red;
+  color: #fff;
+  display: block;
+  border: 0;
+  position: absolute;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  bottom: 0;
+  left: 0;
+}

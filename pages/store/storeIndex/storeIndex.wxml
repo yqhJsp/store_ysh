@@ -1,0 +1,86 @@
+<!--单门店首页-->
+<include src="../../../common/common.wxml"></include>
+<import src="../template/template" />
+<view class="session">
+  <view class='top'>
+    <image src='{{fileDomain}}{{store.image}}'></image>
+  </view>
+  <view class='showContent'>
+    <!--logo-->
+    <view class='storeBox'>
+      <view class='indexLogo'>
+        <image class='logo' src='{{fileDomain}}{{maninfo.logo}}'></image>
+      </view>
+      <view class='storeName' style='color:#{{maninfo.tone}}'>{{store.name}}</view>
+      <view class='centerIcon'>
+       <block wx:for="{{tag}}" wx:for-index="index" wx:for-item="item1" wx:key="key">
+        <view class='storeCon'>{{item1}}</view>
+        </block>
+      </view>
+      <!--邀请会员-->
+      <view class='peroderBtn' bindtap='interve' style='background:#{{maninfo.tone}}'>邀请会员</view>
+      <!--信息-->
+      <view class='showCeter'>
+        <view class='tr border'>
+          <view class='td1'>
+            <image src='/images/store/indexImg/date.png' class='icon mtop' mode="widthFix"></image>
+          </view>
+          <view class='td2'>
+            <label>营业时间：</label>
+            <label>{{store.hours}}</label>
+          </view>
+        </view>
+
+        <view class='tr' bindtap='getlocation'>
+          <view class='td1'>
+            <image src='/images/store/indexImg/dizhi.png' class='icon mtop' mode="widthFix"></image>
+          </view>
+          <view class='td2'>
+            <label>{{store.address}}</label>
+          </view>
+          <view class='td3' bindtap='goCall'>
+            <image src='/images/store/indexImg/icon-arrow.png' class='ricon' mode="widthFix"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--end-->
+    <!--三图片-->
+    <view class='storeColum'>
+      <!--标题-->
+      <view class='columTitle'>
+        <label class='itemLabel'>店铺展示</label>
+      </view>
+      <!--内容-->
+      <view class='view-mall'>
+      <block wx:for="{{store.imagesIds}}" wx:for-index="index" wx:for-item="img" wx:key="key">
+        <template is="indexColumns1" data="{{img,fileDomain,index}}"></template>
+        </block>
+      </view>
+    </view>
+    <!--单图片-->
+
+    <view class='storeColum'>
+      <!--标题-->
+      <view class='columTitle'>
+        <label class='itemLabel'>店铺展示</label>
+      </view>
+      <!--内容-->
+      <view class='view-mall'>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+      </view>
+    </view>
+    <!--end-->
+  </view>
+</view>
+<!--转发悬浮按钮-->
+<view class='transmit'>
+  <view class='shareBtn' bindtap='goShop'> 
+    <image src='/images/store/indexImg/yuyue.png' class='tricon'></image>
+    <view class='tranfont'>积分商城</view>
+  </view>
+  <view class='shareBtn' bindtap='goCall'>
+    <image src='/images/store/indexImg/lianxi.png' class='tricon'></image>
+    <view class='tranfont'>电话</view>
+  </view>
+</view>

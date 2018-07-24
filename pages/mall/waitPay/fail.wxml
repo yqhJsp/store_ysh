@@ -1,0 +1,130 @@
+<!--待支付-->
+<view class='row'>
+  <view class='order-detail'>
+    <view class='order_table'>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          <view class='tip'>
+            <label>商品尚支付失败，请在
+              <label class='red-price'>15分钟内</label>完成支付，逾期未支付订单将自动取消哦！</label>
+          </view>
+        </view>
+        <view class='ordertd orderTip'>
+          <image src="/images/mall/indexImg/fail.png" class='fail_img'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='order-detail'>
+    <view class='order_table'>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          收件人：
+          <label>{{address.consignee}}</label>
+          <label class='fr'>{{ddress.phone}}</label>
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          配送地址：
+          <label>{{address.province}}{{address.city}}</label>
+          <label>{{address.county}}</label>
+          <label>{{address.street}}{{address.address}}</label>
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          商家配送：
+          <label>商家配送</label>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--买家留言-->
+  <view class='order-detail'>
+    <view class='order_table'>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          <label>{{order.notes.length>0?order.notes:"暂无留言"}}</label>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--购物清单-->
+  <view class='order-detail'>
+    <view class='order_table'>
+      <view class='ordertr borders'>
+        <view class='ordertd'>
+          购物清单
+        </view>
+      </view>
+      <!--列表-->
+      <block wx:for="{{order.orderProducts}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+        <view class='order_one'>
+          <view id="{{item.productId}}" class='navigator'>
+            <view class='pro-img'>
+              <image src="{{fileDomain}}{{item.productRule.image}}"></image>
+              <!-- / <image src="{{fileDomain}}{{item.product.imageIds.split(',')[0]}}"></image> -->
+            </view>
+            <view class='product-info-box'>
+              <text class='shoptitle'>{{item.product.title}}</text>
+              <text class='futile'>{{item.productRule.name}}</text>
+              <view class='nav_prive'>
+                <label class='red-price'>￥{{item.onePrice/100}}</label>
+                 <label class='red-price' wx:if="{{item.integral!=0}}">+{{item.integral}}积分</label>
+                <label class='little-icon fr'>x{{item.number}}</label>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!--点单编号-->
+  <view class='order-detail'>
+    <view class='order_table'>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          订单编号：
+          <label>{{order.id}}</label>
+        </view>
+      </view>
+      <view class='ordertr'>
+        <view class='ordertd'>
+          订单时间：
+          <text>{{order.createTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--按钮事件-->
+  <view class='order-detail noborder'>
+    <view class='addressbun'>
+      <view class='goback' bindtap='cancelItem' id='{{order.id}}'>取消订单</view>
+      <view class='goback' bindtap='goPay'>马上去支付</view>
+    </view>
+  </view>
+</view>
+<!--弹窗-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}">
+  <view class="modalPop">
+    <view class='modelTitle'>请选择原因</view>
+    <view class="po_w">
+      <view class="list">
+        <block wx:for="{{list}}" wx:key="name" wx:for-index="idx" wx:for-item="itemName">
+          <view class="li {{resonId==idx+1? 'liactive' : ''}}" data-idx="{{idx}}" catchtap="chooseReson">
+            <lable>{{itemName}}</lable>
+            <view class="other" wx:if="{{resonId==6&&idx==5}}">
+              <textarea data-tag="comment-text" maxlength="100" style='color:#333' bindinput='bindResonInput' focus="{{focus}}"></textarea>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='popBottom'>
+      <view class='cancelBtn' bindtap='hideModal'>取消</view>
+      <view class='confirmBtn' bindtap='modalOk'>确认</view>
+    </view>
+  </view>
+</view>

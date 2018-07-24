@@ -1,0 +1,50 @@
+<view class='session'>
+  <view class='signTian'>
+    <!--姓名-->
+    <view class='signTem border'>
+      <view class='nameText'>
+        <label class='reds'>*</label>姓名：
+      </view>
+      <view class='temRignt'>
+        <input class='integInput' bindinput='nameInput' value='{{name}}' placeholder="请填写姓名" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+    <!--手机号-->
+    <view class='signTem border'>
+      <view class='nameText'>
+        <label class='reds'>*</label>
+        身份证：
+      </view>
+      <view class='codeRight'>
+        <input class="integInput" bindinput='cardInput' value='{{card}}' placeholder="请填写身份证" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+    <!--银行卡号-->
+    <view class='signTem border'>
+      <view class='mdate'>
+        <label class='reds'>*</label>
+        银行卡号：
+      </view>
+      <view class='codeRight'>
+        <input class='integInput' bindinput='bankInput' value='{{bank}}' placeholder="请填写银行卡号" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+    <!--身份证凭证-->
+    <view class='hytem'>
+      <view class='hyText' style='width:100%'>
+        <label class='reds'>*</label>
+        身份证凭证
+      </view>
+      <view class='temRignt'>
+        <view class='saveBtn' bindtap='upimg'>上传图片</view>
+        <view class='img_result'>
+          <block wx:for="{{img_arr}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+            <image src='{{item}}'></image>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--end-->
+  <view class='mod_btn' bindtap='saveMember' style='background-color:#{{maninfo.tone}}'>提交</view>
+</view>

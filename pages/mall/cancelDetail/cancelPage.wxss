@@ -1,0 +1,55 @@
+/* pages/mall/cancelDetail/cancelPage.wxss */
+page{
+ background-color:#fff
+}
+.row{
+   box-sizing: border-box;
+   font-size: 28rpx;  
+}
+.view_cancel{
+   padding:0 30rpx;
+   margin-top:20rpx
+}
+.order_table{
+  border-right:0;
+  width: 100%;
+  background-color: #fff
+}
+.ordertr{
+  width: 100%;
+   display: flex; 
+  justify-content: space-between      
+}
+.ordertd {
+ width: 100%;
+padding:10rpx 0;
+text-align:left;
+}
+.ortitle{
+  width:32%;   
+}
+.privefont {
+    color: #E4393C;
+}
+.save_cont{
+  position:relative;
+  margin-top:100rpx      
+}
+.mod_btn {
+    background: #e4393c;
+    color: #fff;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    border: 0;
+    margin: 0 auto;
+    width: 96%;
+    height: 92rpx;
+    margin-top: 50rpx;
+    line-height: 92rpx;
+    text-align: center;
+    font-size: 32rpx;
+    border-radius: 8rpx;
+    position: relative;
+}

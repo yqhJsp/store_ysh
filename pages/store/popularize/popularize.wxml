@@ -1,0 +1,48 @@
+<!--pages/marketing/deposit/deposit.wxml-->
+<view class='depContaint'>
+  <view class='depceter'>
+    <view class='depLeft'>
+      <input class='depInput' type="digit" bindinput='prefInput' value='' placeholder='请输入可提现金额' placeholder-style='color:#999'></input>
+    </view>
+    <view class='depRigth' bindtap='clear'>余额：{{myBalanceSum}}元</view>
+  </view>
+  <!--提现方式-->
+  <view class='desWay'>
+    <view class='nameText'>
+      提现方式：
+    </view>
+    <view class='userRight'>
+      <view class='parcelItem'>
+        <view class="checkBox {{way==1?'active':''}}" data-id='1' catchtap='checked' data-type="{{way}}" style="background:#{{way==1?maninfo.tone:''}}">
+          <checkbox value="" checked="{{way==1?true:false}}" class='carbox' />
+        </view>
+        <label>微信</label>
+      </view>
+      <view class='parcelItem'>
+        <view class="checkBox {{way==2?'active':''}}" data-id='2' catchtap='checked' style="background:#{{way==2?maninfo.tone:''}}">
+          <checkbox value="" checked="{{way==2?true:false}}" class='carbox' />
+        </view>
+        <label>银行卡</label>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='mod_btn' bindtap='goSave' style='background-color:#{{maninfo.tone}}'>确认提交</view>
+<!--弹窗提示-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}">
+  <view class="modalPop">
+    <view class='voteTip'>您的申请已经提交，管理员会及时处理您的信息</view>
+    <view class='popBottom'>
+      <view class='confirmBtn' bindtap='goMember' style='background:#{{maninfo.tone}}'>返回个人中心</view>
+    </view>
+  </view>
+</view>
+<!--弹窗提示-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{isBank}}">
+  <view class="modalPop">
+    <view class='voteTip'>您暂未绑定银行卡，请前往绑定。</view>
+    <view class='popBottom'>
+      <view class='confirmBtn' bindtap='goBank' style='background:#{{maninfo.tone}}'>绑定银行卡</view>
+    </view>
+  </view>
+</view>

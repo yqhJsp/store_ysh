@@ -1,0 +1,276 @@
+/* pages/user/mineOrder/orderItems.wxss */
+page{
+  background-color:#fff      
+}
+.tab-content1
+{
+  background-color:#fff;
+  flex-direction: column;
+  align-items: center;
+  vertical-align:middle;
+  text-align:center;
+}
+.displays{
+     display: block   
+}
+.stypes{
+ text-align: left;
+ font-size:28rpx;
+ color: #999  
+}
+/*弹窗*/
+.modelTitle{
+  width: 100%;
+  text-align:center;
+  font-size:30rpx;
+  color:#333;
+  padding:20rpx 0;
+  border-bottom:1px solid #ccc      
+}
+.list .li {
+    font-size:26rpx;
+    text-align: center;
+    color: #666666;
+    height:80rpx;
+    line-height:80rpx;
+    padding-right: 0;
+}
+ .list .li.liactive {
+    color: #F04528;
+}
+
+.other {
+    width: 85%;
+    height: 100px;
+    margin: 0 auto;
+    border: 1px #D9D9D9 solid;
+    margin-top: 10px;
+    text-align: left;
+    padding: 0 10px;
+}
+.fl{
+  float: left      
+}
+.fr{
+  float:right     
+}
+.evuat{
+  text-align:right;
+  margin-right:20rpx; 
+  position: absolute;
+  bottom:10px;
+  right: 0     
+}
+.evuat label{
+  font-size:26rpx;
+  color: #dd524d      
+}
+.clear{
+ clear: both
+}
+.tab-image
+{
+margin-top: 130rpx;
+margin-bottom: 50rpx;
+width:294rpx;
+height:236rpx;
+}
+.order-tab {
+    display: flex;
+    height: 92rpx;
+    background-color: #f5f5f5;
+}
+.btn-order, .btn-evuat {
+  display: inline-block;
+  font-size: 28rpx;
+  margin-top: 5rpx;
+  margin-right: 5rpx;
+  margin-bottom: 5rpx;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  line-height: 0;
+  margin-left: 10rpx;
+  text-align: center;
+  border-radius: 8rpx;
+}
+
+.btn-order {
+  padding: 30rpx 5rpx;
+  width: 130rpx;
+}
+
+.btn-evuat {
+  padding: 20rpx 5rpx;
+  width: 100rpx;
+}
+.order-tab .orderOne {
+    height:90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    width:25%;
+    color: #333;
+   display: flex;
+  align-items: center;
+  flex-direction: column;
+    font-size: 30rpx;
+}
+.order-tab .orderOne.tactive {
+    color: #F04528;
+    border-bottom: #F04528 1rpx solid;
+}
+/*订单列表*/
+.order_box {
+    position: relative;
+    background: #fff;
+    border-bottom:20rpx solid #f5f5f5;
+    padding-bottom: 6rpx;
+    width: 100%;
+}
+.order_box .order_top {
+    height: 90rpx;
+    line-height:90rpx;
+    font-size: 28rpx;
+    padding: 0 30rpx;
+    clear: both
+}
+.my_orde{
+  
+}
+.order_box .order_top .order_type{
+ float: right;
+ color:#F04528;
+}
+.order_box .order_shop {
+    padding: 0;
+    position: relative;
+}
+.order_box .order_shop .order-item {
+    border: 0;
+    min-height:190rpx;
+    padding: 10rpx 15rpx;
+     border-bottom: 1px #D9D9D9 solid;
+    font-size: 26rpx;
+    display: flex;
+    flex-flow: row
+}
+.top{
+  border-top: 1px #D9D9D9 solid;
+}
+ .order-item .item_tip{
+  margin-left: 10rpx;
+  margin-right:20px;
+  min-height:160rpx
+}
+.thumbnails{
+  width: 160rpx;
+  height:160rpx;
+  padding:10rpx;
+  border: 1px solid #f0f1f3;
+  position: relative
+}
+.thumbnails .thumbnails_img{
+ width: 160rpx;
+ height:160rpx;
+}
+.order_dis_title {
+overflow:hidden;
+white-space:normal;
+text-overflow:ellipsis;
+word-wrap:break-word;
+-webkit-line-clamp:2;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+}
+.order_dis_title {
+  font-size:28rpx;   
+  color: #333;
+}
+.order_info_bottom {
+font-size: 28rpx;
+  margin-left: 10rpx;
+  color: #999;
+  padding:10rpx 20rpx;
+}
+.textrigth{
+float: right
+}
+.order_rulse{
+color:#8f8f94;
+font-size: 24rpx;
+margin:10rpx 0
+}
+.order_dis_price {
+margin-top:20rpx;
+font-size: 28rpx
+}
+.red{
+color:#E4393C;        
+}
+.num{
+ color:#8f8f94;
+}
+.order-clun {
+    position: relative;
+    text-align: right;
+    margin-top:10rpx;
+    padding-right:20rpx
+}
+.active{
+     color:#dd524d; 
+     border: 1px solid #dd524d;    
+}
+
+.subBox{
+padding:20rpx 20rpx; 
+display: flex
+}
+.boder{
+border-bottom:20rpx solid #f5f5f5 
+}
+.rulesTitle{
+ color:#333; 
+}
+.order_dis_price {
+font-size:28rpx
+}
+.subImg{
+  width: 160rpx;
+  height:160rpx;
+  padding:10rpx;
+  border: 1px solid #f0f1f3;
+}
+.subImg image{
+ width: 160rpx;
+ height:160rpx;
+}
+.subTitle{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.itemSub{
+ margin-left:15rpx;
+font-size:28rpx; 
+width:54%
+}
+.cancelItem{
+ margin: 0 ;
+ text-align:right;
+ width:128rpx
+}
+.cancelItem .cancelBtn,.cancelCoult{
+  border:1rpx solid #F04528;
+  padding:10rpx;
+  color:#F04528;
+  font-size:26rpx;
+  border-radius:8rpx;
+  margin-top:110rpx
+}
+.tip{
+  padding:10rpx;
+  color:#999;
+  font-size:26rpx;
+  border-radius:8rpx;
+  margin-top:130rpx;
+  display:inline-block;
+}

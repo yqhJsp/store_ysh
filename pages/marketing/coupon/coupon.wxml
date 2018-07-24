@@ -1,0 +1,16 @@
+<!--pages/marketing/coupon/coupon.wxml-->
+<import src="/pages/mall/template/template" />
+<!--搜索框--> 
+<!-- <template data="{{searchName,focus}}" is="search"></template> -->
+<view class='session'>
+  <!--优惠卷列表-->
+  <view class='couponList'>
+   <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="key"> 
+   <template data="{{item,fileDomain,des,staust}}" is="coupon"></template>
+    </block> 
+  </view>
+</view>
+ <!--无数据时-->
+<view class="tab-content" wx:if="{{list.length==0}}">
+  <image src='/images/mall/nodata/icon_zanwuyouhui.png' class='tab-image'></image>
+</view>

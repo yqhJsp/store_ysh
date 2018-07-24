@@ -1,0 +1,15 @@
+<!--填写评论-->
+<view class='pretable'>
+  <view class='distr' style='padding-bottom:40rpx'>
+    <view class='distd boder'>
+      <view class='prerow'>请填写评论，文字限制在200字内</view>
+    </view>
+    <view>
+      <textarea maxlength="150" class='refund-desc' bindinput="comInput"></textarea>
+    </view>
+  </view>
+
+  <view class='consultBottom'>
+   <view class='mod_btn coubtn' style='background:#{{maninfo.tone}}' bindtap='insertcomment'>确认提交</view>
+  </view>
+</view>

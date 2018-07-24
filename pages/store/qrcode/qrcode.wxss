@@ -1,0 +1,45 @@
+/* pages/mall/qrcode/qrcode.wxss */
+.qrcode{
+  width: 100%;
+  height: 350rpx;
+  text-align:center
+}
+.qrcodeImg{
+  width:350rpx;
+  height: 350rpx;
+  margin-top:100rpx
+}
+.qrcodeTip{
+  margin-top:50rpx;
+  font-size:28rpx;
+  color: #999;
+  text-align:center
+}
+.noMember,.share{
+padding:0 20rpx;
+position:relative;
+text-align: center
+}
+.noMember{
+margin-top:300rpx;
+}
+.share{
+margin-top:350rpx;
+}
+.setCode{
+    background: #45cdc6;
+    color: #fff;
+    display:inline-block;
+    border: 0;
+    width:250rpx;
+    height: 92rpx;
+    margin-top: 50rpx;
+    line-height: 92rpx;
+    text-align: center;
+    font-size: 32rpx;
+    border-radius: 8rpx;
+}
+button::after{
+  width:0;
+  height: 0
+}

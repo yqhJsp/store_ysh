@@ -1,0 +1,25 @@
+<!--列表循环-->
+<view class='skList'>
+ <block wx:for="{{rankList}}" wx:key="key"> 
+  <view class="skOne">
+ <view class='skImg'>
+        <image src='/images/comImg/hear.png' wx:if="{{item.userInfo.avatarUrl==''}}"></image>
+        <image src='{{item.userInfo.avatarUrl}}' wx:if="{{item.userInfo.avatarUrl!=''}}"></image>
+    </view>
+    <view class='skContent'>
+      <view class='skfont1'>
+        <label>{{item.realName}}</label>
+      </view>
+      <view class='skfont2'>
+        <label>{{item.createTime}}</label>
+      </view>
+    </view>
+  </view>
+   </block> 
+  <!--end-->
+</view>
+<view class='voteBtn' style='background:#{{maninfo.tone}}' bindtap='interve'>我要推广</view>
+<!--无数据时-->
+<view class="tab-content1" wx:if="{{rankList.length==0}}">
+  <image src='/images/comImg/no_data.png' class='tab-image'></image>
+</view>

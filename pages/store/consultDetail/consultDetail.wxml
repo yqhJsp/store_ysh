@@ -1,0 +1,56 @@
+<import src="../template/template" />
+<!--预约详情-->
+<view class='session'>
+  <view class='mydistOne'>
+    <view class='mydistLeft'>
+      <image src='{{fileDomain}}{{consult.children.image}}'></image>
+    </view>
+    <view class='mydistCenter'>
+      <view class='mydistTitle'>{{consult.children.name}}</view>
+      <view class='mydistDate'>
+        <label>预约时间：</label>
+        <label>{{consult.time}}</label>
+      </view>
+    </view>
+    <view class='mydistRigth'>
+      <view class='detailFont'></view>
+    </view>
+  </view>
+
+  <view class='memberCont'>
+    <view class='signTian'>
+      <view class='signTem border'>
+        <view class='detailTitle'>
+          个人信息
+        </view>
+      </view>
+      <view class='signTem border'>
+        <view class='nameText'>
+          姓名：
+        </view>
+        <view class='temRignt'>
+          <label>{{consult.name}}</label>
+        </view>
+      </view>
+      <view class='signTem border'>
+        <view class='nameText'>
+          电话：
+        </view>
+        <view class='temRignt'>
+          <label>{{consult.phone}}</label>
+        </view>
+      </view>
+      <view class='signTem'>
+        <view class='nameText'>
+          留言：
+        </view>
+        <view class='temRignt'>
+          <label>{{consult.content}}</label>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--按钮-->
+  <view class='mod_btn martop'  bindtap='delConsult' data-id="{{consult.id}}">取消预约</view>
+</view>

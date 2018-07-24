@@ -1,0 +1,354 @@
+/* pages/site/signUser/signUser.wxss */
+
+page {
+  background: #f6f6f6;
+}
+
+.session {
+  position: absolute;
+  z-index: 100;
+  top: 50rpx;
+  left: 20rpx;
+  right: 20rpx;
+  margin-bottom: 100rpx;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userTop {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  min-height: 200rpx;
+}
+
+.top {
+  background-color: #fff;
+  width: 100%;
+  min-height: 183rpx;
+  border-radius: 10rpx;
+  box-shadow: 0px 5rpx 15rpx #dedede;
+}
+
+.indexLogo {
+  z-index: 1000;
+  position: relative;
+  display: flex;
+  padding-top:20px
+}
+
+.useIcon {
+  width: 30%;
+  background: #fff;
+  text-align: center;
+  /* margin-top: -80rpx; */
+}
+
+.useIcon image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.userRigth {
+  width: 70%;
+}
+
+.userNmae,.userMember{
+  color: #666;
+  position: relative;
+  /* text-align: center; */
+  margin-top: 10rpx;
+}
+.userNmae{
+  font-size: 32rpx;
+}
+.userMember{
+  font-size:28rpx;
+}
+.userLevel {
+  display: flex;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+  position: relative;
+  background: #1285de;
+  opacity: 0.8;
+  margin-top: 30rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+.level {
+  width: 33%;
+  text-align: center;
+  padding-right: 20rpx;
+  color: #fff;
+  display: inline-block;
+}
+
+.bleft {
+  border-left: 1rpx solid #fff;
+}
+
+.levelBtn {
+  display: inline-block;
+  padding: 5rpx 10rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 10rpx;
+}
+
+.signTian {
+  background: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  box-shadow: 0px 5rpx 15rpx #dedede;
+  margin-top: 20rpx;
+}
+
+.signTem {
+  display: flex;
+  flex-flow: row;
+  padding: 0 30rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.name {
+  
+}
+
+.nameText, .userRight {
+  width: 80%;
+}
+
+.userRight {
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
+}
+
+.userLeft {
+  width: 20%;
+}
+
+.nameText, .userLeft {
+  font-size: 28rpx;
+  color: #666;
+  margin-left:20rpx
+}
+
+.temRignt {
+  width: 10%;
+  text-align: right;
+}
+
+.mydist {
+  width: 31rpx;
+}
+
+.userIcon {
+  width: 28rpx;
+}
+
+.userIcon, .mydist {
+  margin-top: 30rpx;
+  display: inline-block;
+}
+
+.goIcon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.border {
+  border-bottom: 1rpx solid #dedede;
+}
+
+/*切换*/
+
+.navs {
+  background-color: #fff;
+  display: flex;
+  height: 148rpx;
+  padding-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+
+fr {
+  float: right;
+}
+
+fl {
+  float: left;
+}
+
+.navs  .nav-item {
+  width: 25%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.nav-item  .topimg {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+}
+
+.nav-image, .goods-image {
+  overflow: visible;
+}
+
+.nav-image {
+  width: 34rpx;
+  margin: 5rpx;
+}
+
+.goods-image {
+  width: 42rpx;
+}
+
+.nav-item text {
+  margin-top: 0;
+  font-size: 27rpx;
+  color: gray;
+}
+
+.badge {
+  top: 20rpx;
+  left: 59%;
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  font-size: 16rpx;
+  line-height: 35rpx;
+  color: #fff;
+  text-align: center;
+  background: red;
+  border-radius: 100%;
+  font-weight: bold;
+}
+
+.item-text {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.onlineBtn {
+  border: none;
+  background-color: #fff;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.tr {
+  text-align: right;
+}
+
+.tl {
+  text-align: left;
+}
+
+button::after {
+  width: 0;
+  height: 0;
+}
+
+/*授权按钮*/
+
+.noMember {
+  padding: 0 20rpx;
+  margin-top: 350rpx;
+}
+
+.getUser {
+  background: #45cdc6;
+  color: #fff;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  border: 0;
+  margin: 0 auto;
+  width: 250rpx;
+  height: 92rpx;
+  margin-top: 50rpx;
+  line-height: 92rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  position: relative;
+}
+
+/*推广和积分*/
+
+.userBottom {
+  width: 100%;
+  padding: 30rpx 0;
+  display: flex;
+  flex-flow: row;
+}
+
+.userRow {
+  width: 50%;
+  display: flex;
+  flex-flow: row;
+  font-size: 28rpx;
+}
+
+.borderLeft {
+  border-left: 1rpx solid #dedede;
+}
+
+.userPrice {
+  color: red;
+}
+
+/*弹窗*/
+
+.modalPop {
+  width: 80%;
+}
+
+.popContent {
+  width: 100%;
+  height: 150rpx;
+  margin-top: 20rpx;
+}
+
+.voteTip {
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.report {
+  padding: 0 40rpx;
+}
+
+.passName {
+  margin-top: 10rpx;
+}
+
+.password {
+  display: flex;
+  flex-flow: row;
+  font-size: 28rpx;
+  padding: 0 30rpx;
+  margin-top: 80rpx;
+}
+
+.integInput {
+  border: 1rpx solid #dedede;
+  display: inline-block;
+  line-height: 70rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  width: 80%;
+  padding-left: 20rpx;
+}

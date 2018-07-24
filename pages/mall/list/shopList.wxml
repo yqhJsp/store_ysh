@@ -1,0 +1,45 @@
+<!--pages/mall/list/shopList.wxml-->
+<view class="session">
+        <view class="flex-wrp view_search">
+                <view class="view-left-search">
+                        <view class='mall-icon-search' bindtap='searchShop'>
+                                <image src='/images/mall/indexImg/icon/seachicon.png' />
+                        </view>
+                        <input placeholder="请输入搜索的商品" placeholder-style="color:#333" focus="{{focus}}" class='search' bindinput="bindKeyInput"  type='text' value='{{searchName}}'/>
+                        <view class="section__title">你输入的是：{{searchName}}</view>
+                </view>
+                <view class="flex-item view_megase">
+                        <view class='mall-icon-search' bindtap='openMessage'>
+                        <image src='/images/mall/indexImg/icon/info.png' class='messageIcon'/>
+                        </view>
+                </view>
+        </view>
+
+        <!--渲染商品列表-->
+        <view class='shop-scroll'>
+                <view class='shoplist' wx:if="{{list.length>0}}">
+                <block  wx:for="{{list}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+                        <view class='mall-one' id="{{item.id}}" bindtap="goDetail">
+                                <view class='shopImg'>
+                                        <image src="{{fileDomain}}{{item.imageIds}}" ></image>
+                                </view>
+                                <view class='shopbottom'>
+                                <view class='mall-listword'>
+                                     {{item.title}}
+                                </view>
+                                <view class='shop-prive'>
+                                        <label class='fl privefont'>￥ {{item.minPrice/100}}</label>
+                                        <label class='kucun fr'>已售{{item.outNumber}}件</label>
+
+                                </view>
+                                </view>
+                        </view>
+                        </block>
+                </view>
+            
+        </view>
+</view>
+<!--无数据时-->
+<view class='tab-content1' wx:if="{{list.length==0}}">
+         <image src='/images/mall/nodata/icon_zanwushangpin.png' class='tab-image'></image> 
+</view>

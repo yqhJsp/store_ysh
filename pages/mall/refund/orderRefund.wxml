@@ -1,0 +1,119 @@
+<!--退款-->
+<view class='row'>
+        <view class='order-detail orderbottom'>
+                <view class='order_table'>
+                        <view class='ordertr borders'>
+                                <view class='ordertd ortitle'>
+                                        <label>退款类型:</label>
+                                </view>
+                                <view class='ordertd' bindtap='selectType'>
+                                        <label class="addinput refut">{{type_des}}</label>
+                                </view>
+                                <view class='ordertd oricon'>
+                               <label class='fa fa-chevron-right icon-popups'></label>
+                                </view>
+                        </view>
+                        <view class='ordertr borders'>
+                                <view class='ordertd ortitle'>
+                                        <label>退款原因:</label>
+                                </view>
+                                <view class='ordertd' bindtap='selectCause'>
+                                        <label class="addinput refut">{{reson_des}}</label>
+                                </view>
+                                <view class='ordertd oricon'>
+                               <label class='fa fa-chevron-right icon-popups'></label>
+                                </view>
+                        </view>
+                        <view class='ordertr'>
+                                <view class='ordertd ortitle'>
+                                        <label>退款金额:</label>
+                                </view>
+                                <view class='ordertd clear'>
+                                        <label class="red-price">￥{{orderInfo.money/100}}</label>
+                                        <label class="fr little-icon ">最多￥{{orderInfo.money/100}}</label>
+                                </view>
+                        </view>
+                </view>
+        </view>
+        <view class='order-detail orderbottom'>
+                <view class='order_table'>
+                        <view class='ordertr'>
+                                <view class='ordertd'>
+                                        <label>退款说明：</label>
+                                        <label class='fr little-icon'>最多可以输入170个文字</label>
+                                        <view class='refund-desc' wx:if="{{showStatus}}"></view>
+                                        <textarea maxlength="150" class='refund-desc' bindinput="bindKeyInput" focus="{{focus}}" wx:if="{{showStatus==false}}"></textarea>
+                                </view>
+                        </view>
+                </view>
+        </view>
+        <!--上传凭证-->
+        <view class='order-detail'>
+                <view class='order_table'>
+                        <view class='ordertr'>
+                                <view class='ordertd'>
+                                        <label>上传凭证（最多三张）</label>
+                                </view>
+                        </view>
+                </view>
+                <view class='fail-item'>
+                        <view class='refundContent'>
+                                <text class='saveBtn' bindtap='upimg'>上传图片</text>
+                                <view class='img_result'>
+                         <block wx:for="{{img_arr}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+                         <image src='{{item}}'></image>
+                         </block>
+                        </view>
+                        </view>
+                </view>
+
+                <view class='order_table'>
+                        <view class='ordertr'>
+                                <view class='ordertd'>
+                                        <button class='mod_btn' bindtap='refund'>保存</button>
+                                </view>
+                        </view>
+                </view>
+        </view>
+
+</view>
+<!--请选择退款类型-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}">
+<view class="modalPop" >
+         <view class='modelTitle'>请选择退款类型</view>
+                        <view class="list">
+                        <view class="li {{retype==1? 'liactive' : ''}}"  data-id="1" catchtap="chooseType">
+                                        <lable>退款（无需退货）</lable>
+                                </view>
+                        <view class="li {{retype==2? 'liactive' : ''}}"  data-id="2" catchtap="chooseType">
+                                        <lable>退款退货</lable>
+                                </view>  
+                         </view>   
+          <view class='popBottom'>
+          <view class='cancelBtn' bindtap='hideModal'>取消</view>
+          <view class='confirmBtn' bindtap='modalOk'>确认</view>
+          </view>                            
+</view>
+</view>
+<!--退款原因-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showStatus}}">
+ <view class="modalPop">
+        <view class='modelTitle'>请选择原因</view>
+                <view class="po_w">
+                        <view class="list">
+                        <block wx:for="{{resonArr}}" wx:key="name" wx:for-index="idx" wx:for-item="itemName">
+                        <view class="li {{reson==idx+1? 'liactive' : ''}}"  data-idx="{{idx}}" catchtap="chooseReson">
+                                        <lable>{{itemName}}</lable>
+                                         <view class="other" wx:if="{{reson==5&&idx==5}}">
+                                         <textarea data-tag="comment-text" maxlength="100" style='color:#333' bindinput='bindResonInput' focus="{{focus}}"></textarea>
+                                        </view>
+                                </view>
+                        </block>
+                        </view>
+                </view> 
+                  <view class='popBottom'>
+          <view class='cancelBtn' bindtap='hideModal'>取消</view>
+          <view class='confirmBtn' bindtap='modalconfirm'>确认</view>
+          </view>   
+</view> 
+</view>

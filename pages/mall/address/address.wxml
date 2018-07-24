@@ -1,0 +1,104 @@
+<!--pages/mall/address/address.wxml-->
+<view class='session' style='display:{{isList==0?"block":"none"}}'>
+<view class='addressList'>
+        <block  wx:for="{{address_s}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+                <view class='view_address'>
+                        <view class='view_li'>
+                                <view class='view_liTop'  data-id='{{item.id}}' bindtap='setAddress'>
+                                        <view class='payInfo'>
+                                                <label class='payname'>{{item.consignee}}</label>
+                                                <label class='payname'>{{item.phone}}</label>
+                                        </view>
+                                        <view>
+                                               <image src='/images/mall/indexImg/icon/dinwei.png'  class='address'></image>
+                                                <!-- <text class='fa fa-level-up' style='margin-top:20rpx'></text> -->
+                                                <view class='contrain'>
+                                                        <label class='cityMoren' wx:if="{{item.isDefault==1}}">[默认地址]</label>
+                                                        <label>{{item.province}}{{item.city}}{{item.county}}{{item.street}}{{item.address}}</label>
+                                                </view>
+                                        </view>
+                                        <label class='fa fa-angle-right selectIcon'></label>
+                                </view>
+                                <view class='view_liBottom'>
+                                        <view class='table'>
+                                                <view class='tr'>
+                                                        <view class='td_list' style='width:70%'>
+                                                                <!-- <view class="checkbox_item {{item.isDefault==1?'active':''}}" bindtap='radioChange' data-checks="{{item.isDefault}}" id="{{index}}">
+                                                                        <radio value="" checked="{{item.isDefault==1?true:false}}" class='carbox' />
+                                                                </view>
+                                                                <label>设置为默认地址</label> -->
+                                                        </view>
+                                                        <view class='td_list' data-id='{{item.id}}' bindtap='editAddress'>
+                                                                <image src='/images/mall/indexImg/icon/edit.png' class='icons'></image>
+                                                                <label> 编辑</label>
+                                                        </view>
+                                                        <view class='td_list' data-id='{{item.id}}' bindtap='deleteAddress'>
+                                                                <image src='/images/mall/indexImg/icon/delet.png' class='icons'></image>
+                                                                <label> 删除</label>
+                                                        </view>
+                                                </view>
+                                        </view>
+                                </view>
+                        </view>
+                </view>
+        </block>
+        </view>
+  
+        <!--新增按钮-->
+        <view class='view_bar' bindtap='addAddress'>
+                <view class='view-tab-item'>添加新的地址</view>
+        </view>
+</view>
+<!--新增收货地址-->
+<view class='session' style='display:{{isList== 1?"block":"none"}}'>
+        <view class='table'>
+                <view class='tr'>
+                        <view class='td address_title'>
+                              <label>收货人：</label>
+                        </view>
+                        <view class='td'>
+                                <input id='consignee' placeholder='请填写收货人' value='{{consignee}}' bindinput='consigneeInput'></input>
+                        </view>
+                </view>
+                <view class='tr'>
+                        <view class='td address_title'>
+                                <label>联系电话：</label>
+                        </view>
+                        <view class='td'>
+                                <input id='phone' placeholder='请填写联系电话' value='{{phone}}' bindinput='phoneInput'></input>
+                        </view>
+                </view>
+                <view class='tr'>
+                        <view class='td address_title'>
+                               <label> 所在地域：</label>
+                        </view>
+                        <view class='td'>
+                                <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+                                        <view class="picker">
+                                                {{region[0]}} {{region[1]}} {{region[2]}} 
+                                                <!-- {{editAddress.province}}{{editAddress.city}}{{editAddress.county}} -->
+                                        </view>
+                                </picker>
+                                <!-- <input placeholder='请选择地区'></input> -->
+                        </view>
+                </view>
+                <view class='tr'>
+                        <view class='td address_title'>
+                                <label>详细地址：</label>
+                        </view>
+                        <view class='td'>
+                                <input id='address' placeholder='请填写详细地址' value='{{address}}' bindinput='addressInput'></input>
+                        </view>
+                </view>
+                <view class='tr'>
+                        <view class='td'>
+                                <button class='mod_btn' bindtap='saveAddress'>保存</button>
+                        </view>
+                </view>
+
+        </view>
+</view>
+ <!--nodata-->
+<view class='nodist' wx:if="{{hidden}}">
+ <image src='/images/mall/nodata/icon_zanwushouhuo.png' class='tab-image' mode='widthFix'></image>
+</view>

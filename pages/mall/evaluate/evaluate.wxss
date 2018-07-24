@@ -1,0 +1,204 @@
+/* pages/mall/evaluate/evaluate.wxss */
+.row{
+   box-sizing: border-box;
+   font-size: 26rpx   
+}
+.fr{
+    float: right      
+}
+.clear{
+  clear:both      
+}
+.fail-item {
+    border-bottom: 1px #dedede solid;
+    padding:12rpx 30rpx;
+    width: 100%;
+}
+/*商品列表*/
+.order_one{
+    width: 100%;
+   display: flex;
+   justify-content: space-between          
+}
+.order_one .navigator{
+    height:160rpx;
+    width:96%;
+    position: relative;
+     margin-top:20rpx;      
+}
+.product-info-box text{  
+  display: block;   
+  /*设置文字溢出部分为...*/  
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow: ellipsis;  
+} 
+.shoptitle{
+  font-size:28rpx;       
+}
+ .pro-img {
+    position: absolute;
+    height:120rpx;
+    width: 120rpx;
+    overflow: hidden;
+    padding: 10rpx;
+    text-align: center;
+    border: 1px solid #EDEDED;
+}
+ .pro-img image{
+   height:120rpx;
+    width: 120rpx;     
+}
+.product-info-box {
+    -webkit-box-flex: 1;
+    margin-left:160rpx;
+    height: 100%;
+    margin-top: -2px;
+    padding-right: 10rpx;
+}
+.futile {
+    margin: 6rpx 0;
+    font-size: 24rpx;
+    color: #999;
+    line-height: 1;
+}
+.nav_prive{
+ position:absolute;
+ bottom:20rpx;
+ width:70%;
+ left:160rpx;
+ font-size:24rpx       
+}
+.red-price{
+ color: #f23030;
+ font-size:30rpx
+}
+.little-icon {
+    color: #9B9B9B;
+    margin-left:20rpx;
+    font-size: 28rpx
+}
+.comment_textarea {
+    position: relative;
+    overflow: hidden;
+    padding: 0 20rpx 1rpx;
+    margin-top: 30rpx;
+}
+.comment_textarea .textarea_wrap {
+    background: #fff;
+    padding:20rpx;
+     position: relative;
+    border: 1px solid #e5e5e5;
+}
+.textarea_wrap textarea {
+    resize: none;
+    width: 100%;
+    height: 130px;
+    border: none;
+    background: none;
+    font-size:28rpx;
+}
+.evaluateImg {
+    min-height: 50rpx;
+    padding: 20rpx 0px;
+}
+.order_table{
+  border-right:0;
+  width: 100%;
+  padding:0 20rpx;
+  background-color: #fff
+}
+.ordertr{
+  width: 100%;
+   display: flex; 
+  justify-content: space-between      
+}
+.ordertd {
+ width: 100%;
+ padding:20rpx 0;
+ text-align:left;
+}
+.ortitle{
+  width:25%;   
+}
+.saveBtn {
+  display: inline-block;
+    border: 1rpx solid #dedede;
+   height:50rpx;
+   width: 150rpx;
+   padding-top:15rpx; 
+   text-align: center;
+    font-size:28rpx;
+    border-radius: 12rpx;
+}
+/*星星*/
+.star-image {
+  position: absolute;
+    top:50rpx;
+   width: 150rpx;
+  height: 150rpx;
+  src: "/images/indexImg/starky.png";
+}
+
+.item {
+  position: absolute;
+  top: 50rpx;
+ width: 75rpx;
+  height: 150rpx;
+}
+.nomal-star{
+  font-size: 40rpx;
+   color: #ccc;      
+}
+ .icon-star {
+    font-size:40rpx;
+    color: #FF0000 ;
+}
+.star-pos {
+    position: absolute;
+    right: 0px;
+    margin-right: 40rpx;
+}
+.evaluateStar {
+   padding-top:30rpx;
+    position: relative;
+    height: 80rpx;
+    border-top:1rpx solid #dedede
+}
+.evaluateImg .img_result {
+    margin: 20rpx 0;
+}
+.evaluateImg .img_result image{
+   width:100rpx;
+   height:100rpx;
+   margin-right: 10rpx;
+   margin-top:10rpx   
+}
+.star_score {
+    height: 30rpx;
+    width:30rpx;
+    display: inline-block;
+    text-indent: -999em;
+}
+.save_cont{
+  position:relative;
+  margin-top:100rpx      
+}
+.mod_btn {
+    background: #e4393c;
+    color: #fff;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    border: 0;
+    margin: 0 auto;
+    width: 96%;
+    height: 92rpx;
+    margin-top: 50rpx;
+    line-height: 92rpx;
+    text-align: center;
+    font-size: 32rpx;
+    border-radius: 8rpx;
+    position: relative;
+}

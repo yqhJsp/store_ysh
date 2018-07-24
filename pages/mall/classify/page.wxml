@@ -1,0 +1,86 @@
+<!--pages/mall/classify/page.wxml-->
+<!--主盒子-->
+        <!--搜索栏-->
+        <view class="flex-wrp view_search">
+                <view class="view-left-search">
+                        <view class='mall-icon-search' bindtap='goSearch'>
+                                 <image src='/images/mall/indexImg/icon/seachicon.png' />
+                        </view>
+                        <input placeholder="请输入搜索的商品" placeholder-style="color:#333" focus="{{focus}}" class='search' bindinput='bindSearch'/>
+                </view>
+                <view class="flex-item view_megase" bindtap='openMessage'>
+                        <view class='mall-icon-search'>
+                          <image src='/images/mall/indexImg/icon/info.png' class='messageImg'/>
+                        </view>
+                </view>
+        </view>
+        <view class="session">
+        <view class="classify_content">
+                <!--左侧栏-->
+                <view class="nav_left">
+                        <!--全部-->
+                        <!-- <view class='nav_all' bindtap="allShop">
+                                <text></text>
+                        </view> -->
+                        <block  wx:for="{{leftData}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+                        <view bindtap='cutClass'  class="nav_left_items {{fristId == item.id?'tactive':''}}" data-index="" data-id="{{item.id}}">
+                                <text>{{item.name}}</text>
+                        </view>
+                        </block>
+                </view>
+                <!--右侧栏-->
+                <view class="nav_right">
+                        <view class='jd-category-content'>
+                                <!--条件查询-->
+                                <view class='new-search-tab'>
+                                        <!--active为选中的样式-->
+                                        <view class='new-change-eleven {{sort==0?"active":""}}' data-set='0' bindtap='getSort'>
+                                                <text>综合</text>
+                                                <text class='fa fa-long-arrow-down upicon'></text>
+                                        </view>
+                                        <view class='new-change-eleven {{sort==1?"active":""}}' data-set='1' bindtap='getSort'>
+                                                <text>销量</text>
+                                                <text class='fa fa-long-arrow-down upicon'></text>
+                                        </view>
+                                        <view class='new-change-eleven {{sort==3?"active":""}}' data-set='3' bindtap='getSort'>
+                                                <text>价格</text>
+                                                <text class='fa fa-long-arrow-down upicon'></text>
+                                        </view>
+                                </view>
+                        </view>
+                        <scroll-view class='nav_list'>
+                                <!--分类列表-->
+                                <view class="nav_right_items">
+                                        <!--商品列表 -->
+                                        <block  wx:for="{{rightData}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+                                        <view id="{{item.id}}" bindtap="goDetail" class="navigator {{index==rightData.length-1?'':'boder'}}">
+                                                <view class='pro-img'>
+                                                        <image src="{{fileDomain}}{{item.imageIds}}"></image>
+                                                </view>
+                                                <view class='product-info-box'>
+                                                        <text class='shoptitle'>{{item.title}}}</text>
+                                                        <text class='futile'>{{item.desc}}</text>
+                                                        <view class='nav_prive'>
+                                                                <label class='red-price'>￥{{item.minPrice/100}}</label>
+                                                                <label class='little-icon' wx:if="{{isPayPattern==1}}">已售{{item.outNumber}}笔</label>
+                                                        </view>
+                                                </view>
+
+                                        </view>
+                                        </block>
+                                </view>
+                                
+                        </scroll-view>
+                        <!--如果无数据，则显示数据-->
+                        <view class="nodata_text" style='display:none'>该分类暂无数据</view>
+                </view>
+        </view>
+</view>
+<!--预加载-->
+<view class='loadView' wx:if="{{isLoad&&rightData.length>0}}">
+<image src='/images/mall/indexImg/yuload.gif'  mode='widthFix' class='loadImg'></image>
+</view>
+<!--无数据-->
+ <view class='loadView' wx:if="{{rightData.length==0}}">
+  <image src='/images/mall/nodata/no.png' mode='widthFix' class='loadImg'></image>
+</view> 

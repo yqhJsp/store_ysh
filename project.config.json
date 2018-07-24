@@ -1,0 +1,110 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.1.1",
+	"appid": "wxa5375b06f7f44750",
+	"projectname": "%E5%85%BB%E7%94%9F%E4%BC%9A%E5%B0%8F%E7%A8%8B%E5%BA%8F%EF%BC%882018%2F6%2F4%EF%BC%89",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "分享",
+					"pathName": "pages/store/qrcode/qrcode",
+					"query": "memberId=1000000065&appid=wxa5375b06f7f44750"
+				},
+				{
+					"id": -1,
+					"name": "分享",
+					"pathName": "pages/store/qrcode/qrcode",
+					"query": "memberId=1000000065&appid=wxa5375b06f7f44750&member=[object Object]"
+				},
+				{
+					"id": -1,
+					"name": "视频分享",
+					"pathName": "pages/store/disCoverDetail/page",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "视频分享",
+					"pathName": "pages/store/disCoverDetail/page",
+					"query": "memberId=1000000065&appid=wxa5375b06f7f44750"
+				},
+				{
+					"id": -1,
+					"name": "视频分享",
+					"pathName": "pages/store/disCoverDetail/page",
+					"query": "id"
+				},
+				{
+					"id": -1,
+					"name": "视频分享",
+					"pathName": "pages/store/disCoverDetail/page",
+					"query": "id=19"
+				},
+				{
+					"id": -1,
+					"name": "分享推广码",
+					"pathName": "pages/store/qrcode/qrcode",
+					"query": "memberId=1000000068&appid=wxa5375b06f7f44750"
+				},
+				{
+					"id": -1,
+					"name": "分享推广码",
+					"pathName": "pages/store/qrcode/qrcode",
+					"query": "memberId=1000000068&appid=wxa5375b06f7f44750"
+				},
+				{
+					"id": -1,
+					"name": "fenxiang",
+					"pathName": "pages/store/qrcode/qrcode",
+					"query": "memberId=1000000068&appid=wxa5375b06f7f44750&promoCode=group1/M00/01/04/ChrTr1swtj2AS-wYAAFejHeGzyo539.png"
+				},
+				{
+					"id": -1,
+					"name": "养生",
+					"pathName": "pages/store/disCoverDetail/page",
+					"query": "id=20&tone=1285de"
+				},
+				{
+					"id": -1,
+					"name": "sss",
+					"pathName": "pages/store/qrcode/qrcode",
+					"query": "memberId=1000000089&appid=wxa5375b06f7f44750&promoCode=group1/M00/01/08/ChrTr1s7HAuAY35AAAFr1A6svkU117.png&tone=2ad0a7&sid=10009&type=1"
+				},
+				{
+					"id": 11,
+					"name": "长按小程序码",
+					"pathName": "pages/store/qrcode/qrcode",
+					"query": "memberId=1000000114&appid=wxa5375b06f7f44750&promoCode=group1/M00/00/01/rBK3CFs9wgyAe98NAAFf0NZev5c395.png&scene=1036",
+					"scene": "1036",
+					"referrerInfo": {}
+				}
+			]
+		}
+	}
+}

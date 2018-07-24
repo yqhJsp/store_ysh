@@ -1,0 +1,32 @@
+<!--pages/vote/oneDetail/oneDetail.wxml-->
+<include src="../../../common/common.wxml"></include>
+<view class='row'>
+  <view class='videoBox'>
+    <image src='{{fileDomain}}{{details.image}}' class='coverImg' mode='widthFix'></image>
+  </view>
+  <view class='detailTitle'>
+    <view class='fristTop'>
+      <view class='voteTitle'>{{details.name}}</view>
+    </view>
+     <view class='serviceDay'>服务年限：{{details.ageLimit}}天</view>
+    <view class='serviceTem'>
+      <view class='price'>￥{{details.price/100}}</view>
+      <view class='voteShare'>
+        <view class='shareBtn' bindtap='interve'>我要推广</view>
+      </view>
+    </view>
+  </view>
+  <view class='order-detail'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>
+<view class='voteBtn' style='background:#{{maninfo.tone}}' bindtap='goBuy'>立即订购</view>
+<!--弹窗-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}">
+  <view class="modalPop">
+    <view class='voteTip'>您的订购信息已提交，请留意电话信息！</view>
+    <view class='popBottom'>
+      <view class='confirmBtn' bindtap='goIndex' style='background:#{{maninfo.tone}}'>返回首页</view>
+    </view>
+  </view>
+</view>

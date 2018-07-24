@@ -1,0 +1,676 @@
+/* pages/mall/index/index.wxss */
+@import '../template/template.wxss';
+.top_content {
+  position: relative;
+  background-color:#1285de
+}
+.session{
+  position: relative
+}
+.swiper_content image {
+  border-radius: 10rpx;
+}
+
+swiper swiper-item {
+  border-radius: 10rpx;
+}
+
+.swiper_content {
+  z-index: 1024;
+  position: relative;
+  text-align: center;
+  padding: 0 3% 0 3%;
+  border-radius: 10rpx;
+}
+
+.top {
+  height: 210rpx;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
+
+.top_1 {
+  height: 50rpx;
+  margin-top: 186rpx;
+  background-color: #f3f3f3;
+  width: 100%;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  position: absolute;
+  z-index: 10;
+}
+
+/*banner图*/
+
+.channel_content {
+  background: white;
+  padding: 5rpx 0 20rpx 0;
+  margin-top: 20rpx;
+}
+
+.view_bady {
+  background-color: #f5f5f5;
+}
+
+page {
+  background-color: #f3f3f3;
+}
+
+.view_banner {
+  height: 240rpx;
+  border-radius: 10rpx;
+  width: 702rpx;
+}
+
+.view_banner image {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+/*搜索栏*/
+
+.view_search {
+  padding: 10rx;
+  z-index: 100;
+  height: 100rpx;
+  width: 100%;
+  position: relative;
+  clear: both;
+}
+
+.active {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.mall-search {
+  float: left;
+}
+
+.view_search .view-left-search {
+  height: 65rpx;
+  text-align: left;
+  border-radius: 52rpx;
+  background: #fff;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  top: 21rpx;
+  right: 0;
+  bottom: 0;
+  width: 86%;
+  left: 20rpx;
+}
+
+.search {
+  height: 58rpx;
+  width: 80%;
+  border: 0;
+  color: black;
+  font-size: 28rpx;
+  padding: 0 15rpx;
+  line-height: 58rpx;
+}
+
+.view_search .view-left-search .mall-icon-search {
+  margin: 12rpx 20rpx;
+  float: left;
+}
+
+.view_search .view-left-search .mall-icon-search  image {
+  width: 37rpx;
+  height: 38rpx;
+}
+
+.view_search .view_megase {
+  width: 17%;
+  float: right;
+  text-align: right;
+  padding-right: 20rpx;
+  height: 58rpx;
+}
+
+.view_search .view_megase .messageImg {
+  width: 44rpx;
+  margin-top: 30rpx;
+  height: 44rpx;
+}
+
+/*快捷入口*/
+.view_channel {
+  position: relative;
+  margin: 0 24rpx 0 24rpx;
+}
+
+.view_channel .channel_item {
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.view_channel .channel_item.view-img {
+  display: block;
+  text-align: center;
+  padding-top: 5rpx;
+  width: 108rpx;
+  overflow: hidden;
+}
+
+.view-img image {
+  height: 88rpx;
+  width: 88rpx;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.view-img .cellspan {
+  font-size: 26rpx;
+  vertical-align: 0;
+  color: #666;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*店铺公告*/
+.view-news {
+  margin: 20rpx 24rpx 10rpx 24rpx;
+  height: 58rpx;
+  font-size: 26rpx;
+  -moz-border-radius: 48rpx;
+  -webkit-border-radius: 48rpx;
+  border-radius: 48rpx;
+  background-color: #fff;
+  padding: 0 5rpx;
+  position: relative;
+}
+
+.view-news .view-news-tit {
+  min-width: 103rpx;
+  position: absolute;
+  height: 58rpx;
+  line-height: 58rpx;
+  left: 15px;
+  display: block;
+  color: #333;
+}
+
+.view-news .news-list-wrapper {
+  margin: 0 100rpx 0 120rpx;
+  padding: 0 20rpx;
+  height: 58rpx;
+  overflow: hidden;
+}
+
+.view-news .news-item {
+  font-size: 26rpx;
+  line-height: 58rpx;
+  height: 58rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.view-news  .view-news-more {
+  font-size: 26rpx;
+  text-align: center;
+  width: 90rpx;
+  color: #333;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 38rpx;
+  line-height: 38rpx;
+  margin-top: 10rpx;
+  border-left: 1rpx solid #999;
+}
+
+.view-table-view {
+  position: relative;
+  border-bottom: 0;
+  margin-top: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.view-table-view .nav-list {
+  padding: 0;
+  margin-top: 10rpx;
+}
+
+.view-list-title, .viewFlex {
+  height: 88rpx;
+  background: #fff;
+  overflow: hidden;
+}
+
+.view-list-title {
+  text-align: left;
+  padding-left: 20rpx;
+  font-size: 32rpx;
+}
+.view-list-title label{
+  overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
+
+}
+.viewFlex {
+  flex-flow: row;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.goIcon {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: -6rpx;
+}
+
+.columnIcon {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: -5rpx;
+  margin-right: 10rpx;
+}
+
+.view-table-view .nav-list .view-mall {
+  /* width: 100%; */
+  margin-top: 10rpx;
+  position: relative;
+  margin: 10rpx 0 0 0;
+}
+
+.shopHeigth {
+  width: 70%;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  font-size: 32rpx;
+  display: inline-block;
+  border-left: #fb7193 solid 5rpx;
+}
+
+.more {
+  width: 23%;
+  text-align: right;
+  display: inline-block;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.mall_more {
+  position: relative;
+  padding: 20rpx 12rpx 0 12rpx;
+  background: #fff;
+}
+
+/*资讯*/
+.isInformation {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 20rpx;
+  overflow: hidden;
+  min-height: 50rpx;
+}
+
+.view_address {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+}
+
+.logos {
+  width: 88rpx;
+  padding-right: 30rpx;
+}
+
+.logos image {
+  width: 88rpx;
+  height: 88rpx;
+  margin-top: 15rpx;
+}
+
+.address-row {
+  width: 86%;
+  height: auto;
+  font-size: 24rpx;
+  border-right: 1rpx solid #ccc;
+  overflow: hidden;
+  color: #333;
+  padding: 0rpx 20rpx 0 0;
+}
+
+.zixun {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-bottom: 10rpx;
+}
+
+.shopName {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 10rpx;
+}
+
+.addressName {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 5rpx;
+}
+
+.map-row {
+  padding-left: 20rpx;
+  text-align: center;
+  color: #333;
+  margin-top: -5rpx;
+}
+
+.map-row label {
+  font-size: 26rpx;
+}
+
+.left {
+  margin-top: 40rpx;
+}
+
+.gophone {
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  border: #ccc solid 1rpx;
+  border-radius: 32rpx;
+}
+
+.hot {
+  width: 58rpx;
+  height: 30rpx;
+  font-size: 20rpx;
+  color: #f30;
+  text-align: center;
+  line-height: 28rpx;
+  border: 1rpx solid #f30;
+  border-radius: 4rpx;
+  display: inline-block;
+}
+
+/*秒杀*/
+
+.skone {
+  width: 220rpx;
+  display: inline-block;
+  margin: 0 10rpx 0 12rpx;
+}
+
+.skoneImg {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.skoneBottom {
+ margin:20rpx 0;
+  font-size: 24rpx;
+  color: #000;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.skbtn {
+  background: #f02804;
+  font-size: 24rpx;
+  color: #fff;
+  border-radius: 8rpx;
+  text-align: center;
+  padding: 5rpx 0;
+  width: 100rpx;
+  display: inline-block;
+}
+.sktitle {
+  padding-left: 10rpx;
+}
+.skPrice {
+  padding: 20rpx 0;
+  text-align: center;
+  color: #f02804;
+  font-size: 36rpx;
+}
+
+.sktip {
+  font-size: 20rpx;
+}
+
+.skSwiper {
+  width: 100%;
+  height: 450rpx;
+}
+
+.groupSwiper {
+  width: 100%;
+  height: 353rpx;
+}
+
+/*拼团*/
+
+.groupOne {
+  display: flex;
+  flex-flow: row;
+  height: 260rpx;
+  overflow: hidden;
+  padding: 0 12rpx;
+  background-color: #fff;
+}
+
+.skboder {
+  border-bottom: 1rpx solid #dedede;
+}
+
+.skImg {
+  width: 266rpx;
+  height: 266rpx;
+  position: relative;
+}
+
+.skImg image {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.skContent {
+  width: 70%;
+  position: relative;
+  margin-left: 30rpx;
+}
+
+.skfont1 {
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.skfont2 {
+  color: #999;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  margin-bottom: 10rpx;
+}
+
+.skfont3 {
+  color: #f44336;
+  font-size: 36rpx;
+}
+
+.skProgess {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  display: flex;
+  flex-flow: row;
+}
+
+.progress {
+  width: 60%;
+  padding-top: 10rpx;
+  border-radius: 16rpx;
+}
+
+.sktiop {
+  color: #999;
+  margin: 5rpx 0 0 15rpx;
+}
+
+.skBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+}
+
+.skprice {
+  width: 60%;
+}
+
+.skrigth {
+  width: 40%;
+  text-align: right;
+}
+
+.skBtn, .noSkill {
+  width: 160rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  margin-top: 25rpx;
+}
+
+.skBtn {
+  background: #f44336;
+  color: #fff;
+}
+
+.noSkill {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.proyou {
+  font-size: 24rpx;
+  color: #ff5638;
+}
+
+/*团购*/
+
+.groupImg {
+  width: 36rpx;
+  height: 29rpx;
+  margin-right: 10rpx;
+}
+
+/*砍价*/
+
+.bargainOne {
+  display: flex;
+  flex-flow: row;
+  overflow: hidden;
+  background-color: #fff;
+  height: 280rpx;
+  padding: 20rpx 24rpx;
+}
+
+.bargainImg {
+  width: 260rpx;
+  height: 260rpx;
+  position: relative;
+}
+
+.barPrice {
+  padding: 20rpx 0;
+  color: #f02804;
+  font-size: 24rpx;
+}
+
+.barfont2 {
+  color: #999;
+  font-size: 20rpx;
+  margin-top: 10rpx;
+}
+
+.barMore {
+  position: relative;
+  background: #fff;
+}
+
+.barlist {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 10rpx;
+}
+
+.barBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 360px) {
+  .skone {
+    width: 220rpx;
+    display: inline-block;
+    margin: 0 13rpx 0 12rpx;
+  }
+}
+
+.loadView {
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 6666;
+  bottom: 0;
+  text-align: center;
+}
+
+.loadImg {
+  width: 200rpx;
+  margin-top: 200rpx;
+}
+.lm-panel image{
+display:block
+}
+
+/*购物车悬浮按钮*/
+.transmit {
+  position:fixed;
+  z-index: 100;
+  bottom: 150rpx;
+  right:30rpx;
+  text-align:right;
+}
+
+.shareBtn{
+  width:112rpx;
+  height:112rpx;
+  overflow: hidden;
+  border-radius:100%;
+   opacity:0.9; 
+  background-color:#1285de;
+}
+.tranCart{
+  font-size:26rpx;
+  color:#fff;
+  text-align:center;
+  padding-top:40rpx
+}

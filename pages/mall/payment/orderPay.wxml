@@ -1,0 +1,196 @@
+<!--订单界面-->
+<import src="../template/template" />
+<view class="session {{showModalStatus?'hiddenScroll':''}}">
+  <!--提示会员注册-->
+  <view class='tipMember' bindtap='goMember' wx:if="{{member.isRegister==2}}" data-type="{{member.isRegister}}">
+    <view>您暂不是会员，不能享受会员优惠，请前往注册会员！！！</view>
+    <view class='fa fa-chevron-right mrigth'></view>
+  </view>
+  <view class='pay_address'>
+    <view class='address_defalut'>
+      <view class='address_info' bindtap='openAddress'>
+        <!--已选择地址  -->
+        <view style='display:{{isAddress==1?"none":"block"}}'>
+          <view class='address_top'>
+            <label>{{address.consignee}}</label>
+            <label class='phone'>{{address.phone}}</label>
+          </view>
+          <view class='address_city'>
+            <image src='/images/mall/indexImg/icon/dinwei.png' class='address'></image>
+            <label class='addres_cont'>收货地址：</label>
+            <label>{{address.province}}{{address.city}}{{address.county}}{{address.street}}{{address.address}}</label>
+          </view>
+        </view>
+        <!--未选择地址-->
+        <view class='noaddress' style='display:{{isAddress==1?"block":"none"}}'>
+          <image src='/images/mall/indexImg/icon/ad.png' class='dizhi'></image>
+          <label> 请选择收货地址</label>
+        </view>
+        <view class='fa fa-chevron-right icon-popups'></view>
+      </view>
+    </view>
+    <view class='address_border'>
+      <image src='/images/mall/indexImg/paybot.png'></image>
+    </view>
+  </view>
+  <!--订单列表-->
+  <view class='pay_info'>
+    <view class='pay_list'>
+      <block wx:for="{{products}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+        <view class='hproduct'>
+          <view class='productInfo'>
+            <image src="{{fileDomain}}{{item.selectRule.image}}" class='photo'></image>
+            <view class='product-info-box'>
+              <text class='shoptitle'>{{item.title}}</text>
+              <view class='futile'>{{item.selectRule.name}}</view>
+              <view class='nav_prive'>
+                <!--普通版-->
+                <label class='red-price' wx:if="{{stype==1}}">￥{{item.selectRule.price/100}}
+                  <label wx:if="{{item.selectRule.integral!=0}}">+{{item.selectRule.integral}}积分</label>
+                </label>
+                <!--秒杀-->
+                <label class='red-price' wx:if="{{stype==2}}">￥{{skArr.skProduct.price/100}}</label>
+                <!--团购-->
+                <label class='red-price' wx:if="{{stype==3}}">￥{{item.selectRule.price/100}}</label>
+                <view class="count_control display-flex-row">
+                  <view class="item_reduce item_btn" data-id='{{item.id}}' bindtap="goodRefund">-</view>
+                  <view class="item_num">{{item.goodNum}}</view>
+                  <view class="item_add item_btn" data-id='{{item.id}}' bindtap="goodAdd" data-num="{{stype==1?item.selectRule.limitation:skArr.skProduct.limitation}}">+</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='buy_additional clear'>
+            <view class='pogake fl'>{{item.isPackage==0?'不包邮':'包邮'}}</view>
+            <view class='pay-total'>
+              <label>共计{{item.goodNum}}件商品</label>
+              <!--普通版-->
+              <label style='margin-left:10rpx' wx:if="{{stype==1}}">合计：{{item.sum}}（含邮费）</label>
+              <!--秒杀、团购-->
+              <label style='margin-left:10rpx' wx:if="{{stype==2||stype==3}}">合计：{{item.sum}}（含邮费）</label>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </view>
+  <!--优惠卷、秒杀和团购不可用-->
+  <view wx:if="{{maninfo.type==1006&&stype==1}}">
+    <view class='couponView' bindtap='getCoupon' style='display:none'>
+      <view class='coupleft'>优惠券</view>
+      <view class="coupright tr {{member.id==0?'':'nomemcer'}}">{{couponDes}}</view>
+      <view class='cotip'>
+        <image class="itemImage" src="/images/mall/indexImg/icon/icon-arrow.png"></image>
+      </view>
+    </view>
+    <!--积分-->
+    <view class='integView'>
+      <view class='coupleft'>积分</view>
+      <view class='integright'>
+        <label>{{integSum}}积分可用</label>
+      </view>
+      <view class='integleft'>
+
+      </view>
+      <view class='cotip'>
+        <image class="itemImage" src="/images/mall/indexImg/icon/icon-arrow.png"></image>
+      </view>
+    </view>
+    <view class='integView'>
+      <view class='coupleft'>余额</view>
+      <view class='integleft'>
+      <input class='integInput' bindinput='balanceInput' type='digit' value='' placeholder='请输入余额' placeholder-style='color:#999' disabled="{{member.isRegister!=2?false:true}}"></input>
+      </view>
+      <view class='integright'>
+        <label>{{myBalanceSum}}元可用</label>
+      </view>
+      <view class='cotip'>
+        <image class="itemImage" src="/images/mall/indexImg/icon/icon-arrow.png"></image>
+      </view>
+    </view>
+  </view>
+  <!--买家留言-->
+  <view class='pay_info'>
+    <view class='liuyan clear'>
+      <view class='pay_cont'>买家留言：</view>
+      <view class='bussmessage'>
+        <view class='paytext' wx:if="{{showModalStatus}}"></view>
+        <textarea placeholder="对本次交易的留言（200字内）" data-id='notes' placeholder-style="color:#666;" class='paytext' bindinput='notesInput' wx:if="{{showModalStatus==false}}"></textarea>
+      </view>
+    </view>
+  </view>
+  <view class='pay_bottom'>
+    <view class='payofer'>
+      <label class='fl'>订单总金额</label>
+      <label class='price fr'>￥{{orderSum/100}}</label>
+    </view>
+    <!--营销-->
+    <view wx:if="{{maninfo.type==1006&&stype==1}}">
+      <view class='payofer' style='display:none'>
+        <label class='fl'>优惠券</label>
+        <label class='price fr'>￥{{facevalue!=0?facevalue/100:0}}</label>
+      </view>
+      <view class='payofer'>
+        <label class='fl'>积分</label>
+        <label class='price fr'>{{integral}}积分</label>
+      </view>
+    </view>
+    <!--end-->
+    <view class='payofer'>
+      <label class='fl'>运费</label>
+      <label class='price fr'>￥{{freight/100}}</label>
+    </view>
+  </view>
+</view>
+<view class="bottom_total">
+  <view class="row">
+    <text>合计:<text class="price">￥ </text></text>
+    <text class="price">{{total/100}}</text>
+    <button class="button-red" bindtap="toBuy" formType="submit">去结算({{piece}})</button>
+  </view>
+</view>
+<!--优惠卷弹窗-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="coupon_area {{isCoupon == 1 ? 'display-block':'display-none'}}">
+  <view class="couponTitle">
+    <view class="coupon_tip">
+      优惠券
+    </view>
+    <image class="couponClose" bindtap="hideModal" src="/images/mall/indexImg/icon/delete.png"></image>
+  </view>
+  <view class='couConten'>
+    <block wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+      <view class='couponOne'>
+        <view class="coupoat {{orderSum*freight<=item.faceValue?'disabled':''}}">
+          <view class="checkbox_item {{item.coupon.isDefault==0?'':'active'}}" data-id='{{item.id}}' data-select='{{item.coupon.isDefault}}' bindtap='checkedChange' data-facevalue="{{item.coupon.faceValue}}" data-cid='{{item.coupon.id}}' data-scope="{{item.coupon.scope}}"
+            data-name='{{item.coupon.name}}' data-limit="{{item.coupon.limit}}">
+            <radio value="{{item.id}}" checked='{{item.coupon.isDefault==0?"false":"true"}}' class='carbox'/>
+          </view>
+        </view>
+        <view class='coupright'>
+          <image src='/images/indexImg/coupon.png' class='couImgbg'></image>
+          <view class='couTem'>
+            <view class='couleft'>
+              <view class='couPrice'>
+                <label class='font1'>￥</label>
+                <label class='font2'>{{item.coupon.faceValue/100}}</label>
+              </view>
+              <view class='coufont'>
+                <label wx:if="{{item.coupon.scope==2}}"> 满{{item.coupon.limit/100}}必减</label>
+                <label wx:if="{{item.coupon.scope==1}}">所有商品可使用</label>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class='comfim'>
+      <view class='comfimBtn' bindtap='hideModal' wx:if="{{couponList.length>0}}">确定</view>
+    </view>
+    <!--无数据时-->
+    <view class="tab-content1" wx:if="{{couponList.length==0}}">
+      <image src='/images/mall/nodata/icon_zanwuyouhui.png' class='tab-image'></image>
+    </view>
+  </view>
+</view>

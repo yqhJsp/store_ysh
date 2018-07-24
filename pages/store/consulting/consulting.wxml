@@ -1,0 +1,98 @@
+<!--pages/site/consulting/consulting.wxml-->
+<import src="../template/template" />
+<view class='pretable'>
+  <view class='distr'>
+    <view class='distd boder'>
+      <view class='prerow'>姓名：</view>
+      <view class='prerow2'>
+        <input class='integInput' bindinput='nameInput' value='' placeholder="请填写姓名" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+    <view class='distd boder'>
+      <view class='prerow'>电话：</view>
+      <view class='prerow2'>
+        <input class='integInput' bindinput='phoneInput' value='' placeholder="请填写收货人号码" placeholder-style="color:#999"></input>
+      </view>
+      <view class='cotip'>
+        <image class="itemImage" src="/images/store/indexImg/icon-arrow.png"></image>
+      </view>
+    </view>
+    <view class='distd'>
+      <view class='prerow'>时间：</view>
+      <view class='prerow2'>
+        <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+          <!-- <picker mode="date" value="{{date}}" bindchange="bindDateChange" class='datePick' > -->
+          <view class="picker">
+            {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
+
+          </view>
+        </picker>
+      </view>
+      <view class='cotip'>
+        <image class="itemImage" src="/images/store/indexImg/icon-arrow.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='distr' style='padding-bottom:40rpx'>
+    <view class='distd boder'>
+      <view class='prerow'>门店：</view>
+      <view class='prerow2' bindtap='selectStore'>
+        {{storeList.name}}
+      </view>
+      <view class='cotip'>
+        <image class="itemImage" src="/images/store/indexImg/icon-arrow.png"></image>
+      </view>
+    </view>
+    <view class='des'>留言</view>
+    <view>
+      <textarea maxlength="150" class='refund-desc' bindinput="consultInput" placeholder='咨询留言'></textarea>
+    </view>
+  </view>
+
+  <view class='consultBottom'>
+    <view class='coutip'>提交预约后，我们会尽快联系您</view>
+    <view class='mod_btn coubtn' bindtap='save' style="background-color:#{{maninfo.tone}}">确认提交</view>
+  </view>
+</view>
+<!--弹窗-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="coupon_area {{isSoupon == 1 ? 'display-block':'display-none'}}">
+  <view class="couponTitle">
+    <view class="coupon_tip">
+      选择门店
+    </view>
+    <image class="couponClose" bindtap="hideModal" src="/images/store/indexImg/delete.png"></image>
+  </view>
+  <view class='couponDome'>
+    <block wx:if="{{infos.length>0}}">
+      <block wx:for="{{infos}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+        <view class="storeOne" catchtap='goStore' data-id="{{item.id}}">
+          <view class='storeLeft'>
+            <image src='{{fileDomain}}{{item.image}}'></image>
+          </view>
+          <view class='storeCenter'>
+            <view class='centerTitle'>{{item.name}}</view>
+            <view class='centerIcon'>
+              <block wx:for="{{item.tags}}" wx:for-index="index" wx:for-item="item1" wx:key="key">
+                <view class='storeCon'>{{item1}}</view>
+              </block>
+            </view>
+            <view class='centerAddress'>
+              <image src='/images/store/indexImg/adicon.png' class='signicon'></image>
+              <label class='address'>{{item.address}}</label>
+            </view>
+          </view>
+          <view class='storeRigth'>
+            <image src='/images/store/indexImg/icon-arrow.png' class='goIcon'></image>
+          </view>
+        </view>
+      </block>
+    </block>
+    <block wx:else>
+      <view class='coupon_no'>
+        <image src='/images/store/indexImg/no.png'></image>
+      </view>
+    </block>
+  </view>
+</view>

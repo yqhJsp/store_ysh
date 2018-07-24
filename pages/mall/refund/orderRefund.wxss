@@ -1,0 +1,343 @@
+/* pages/mall/refund/orderRefund.wxss */
+page{
+  background-color:#fff      
+}
+.fr{
+    float: right      
+}
+.clear{
+  clear:both      
+}
+.row{
+   box-sizing: border-box;
+   font-size: 26rpx;
+   margin-bottom:20rpx    
+}
+.icon-popups{
+ position:relative;
+ font-size:24rpx;
+ color: #999
+}
+.payname {
+    margin-left: 40rpx;
+}
+.order {
+    padding: 0 30rpx;
+}
+.order-detail {
+    margin-top:0;
+}
+.orderbottom{
+ border-bottom: 20rpx #f5f5f5 solid;
+ font-size:28rpx
+}
+.order_table{
+  padding:0 30rpx; 
+  font-size:28rpx;     
+  border-right:0;
+  background-color: #fff
+}
+.orderth{
+  font-size:28rpx;
+   color:#333;     
+}
+.ordertr{
+ padding:30rpx 0;
+  width: 100%;
+   display: flex; 
+  justify-content: space-between      
+}
+.ordertd {
+  height:100%;
+   width: 100%;
+   text-align:left;
+}
+.ortitle{
+  width:25%;   
+}
+.oricon{
+    width:10%    
+}
+.orderTip{
+  width:30%;
+  margin-left:20rpx       
+}
+.ordertd view{
+  margin-bottom:20rpx;      
+}
+.borders{
+  border-bottom:1rpx solid #dedede;       
+}
+.fail_img{
+  height:140rpx;
+  width: 140rpx;      
+}
+.tip{
+  margin-top:30rpx
+}
+/*商品列表*/
+.order_one{
+    width: 100%;
+   display: flex;
+   justify-content: space-between          
+}
+.order_one navigator{
+    height:160rpx;
+    width:98%;
+    position: relative;
+     margin-top:20rpx;   
+    border-bottom: 1px solid #DEDEDE;     
+}
+.product-info-box text{  
+  display: block;   
+  /*设置文字溢出部分为...*/  
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow: ellipsis;  
+} 
+.shoptitle{
+  font-size:26rpx;       
+}
+ .pro-img {
+    position: absolute;
+    height:120rpx;
+    width: 120rpx;
+    overflow: hidden;
+    padding: 10rpx;
+    text-align: center;
+    border: 1px solid #EDEDED;
+}
+ .pro-img image{
+   height:120rpx;
+    width: 120rpx;     
+}
+.product-info-box {
+    -webkit-box-flex: 1;
+    margin-left:160rpx;
+    height: 100%;
+    margin-top: -2px;
+    padding-right: 10rpx;
+}
+.futile {
+    margin: 6rpx 0;
+    font-size: 24rpx;
+    color: #999;
+    line-height: 1;
+}
+.nav_prive{
+ position:absolute;
+ bottom:20rpx;
+ width:70%;
+ left:160rpx;
+ font-size:24rpx       
+}
+.red-price{
+ color: #f23030;
+}
+.little-icon {
+    color: #9B9B9B;
+}
+.addressbun{
+  width: 100%;
+ text-align: center;   
+}
+.goback {
+    background: #F02804;
+    position:relative;
+    color: #fff;
+    display:inline-block;
+    font-size: 26rpx;
+    text-align: center;
+    margin-top:50rpx;
+    margin-bottom:30rpx;
+    margin-right:20rpx;
+    width:200rpx;
+    height:60rpx;
+    padding-top: 0.6rem;
+    border-radius: 12px;
+}
+/*弹窗*/
+.cancelPop {
+  background-color:rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+  opacity:0.5;
+  position: fixed;
+  z-index: 1000;
+  bottom:0;  
+}
+
+.cancelPop .personal {
+    width: 96%;
+    position: relative;
+    top: 10%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 6px;
+    min-height: 100px;
+}
+
+.cancelPop .personal .persontop {
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 15px;
+    border-bottom: 1px solid #c8c7cc;
+}
+.list view {
+    font-size: 28rpx;
+    text-align: center;
+    color: #666666;
+    padding: 11px 0;
+    padding-right: 0 !important;
+}
+
+.list view.liactive {
+    color: #F04528;
+}
+
+.other {
+    width: 85%;
+    height: 100px;
+    margin: 0 auto;
+    border: 1px #D9D9D9 solid;
+    margin-top: 10px;
+    text-align: left;
+    padding: 0 10px;
+}
+.other textarea{
+     width: 100%;
+     text-align:left   
+}  
+.closeDov {
+    height: 60px;
+    text-align: center;
+}
+.refut {
+    color: #999;
+}
+.addinput {
+    vertical-align: top;
+}
+.refund-desc {
+    width:96%;
+    height: 200rpx;
+    margin: 0 auto;
+    border-radius:12rpx;
+    margin-top:20rpx;
+    border: 1rpx #D9D9D9 solid;
+    text-align: left;
+    padding:10rpx
+}
+.fail-item {
+    border-top: 1rpx #dedede solid;
+     width: 100%;
+}
+.refundContent {
+    height: 150rpx;
+    margin-top:20rpx;
+    margin-left:30rpx
+}
+.refundContent .img_result {
+    margin: 20rpx 0;
+}
+.refundContent .img_result image{
+   width:100rpx;
+   height:100rpx;
+   margin-right:10rpx;
+   margin-top:10rpx    
+}
+.saveBtn {
+  display: block;
+    border: 1rpx solid #dedede;
+   height:50rpx;
+   width: 150rpx;
+   padding-top:15rpx; 
+   text-align: center;
+    font-size:26rpx;
+    border-radius: 12rpx;
+}
+.mod_btn {
+    background: #e4393c;
+    color: #fff;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    border: 0;
+    margin: 0 auto;
+    width: 96%;
+    height: 92rpx;
+    margin-top: 50rpx;
+    line-height: 92rpx;
+    text-align: center;
+    font-size: 32rpx;
+    border-radius: 8rpx;
+    position: relative;
+}
+/*弹窗*/
+.list .li {
+    font-size:28rpx;
+    text-align: center;
+    color: #666666;
+    padding: 20rpx 0;
+    padding-right: 0;
+}
+ .list .li.liactive {
+    color: #F04528;
+}
+.other {
+    width: 85%;
+    height: 100px;
+    margin: 0 auto;
+    border: 1px #D9D9D9 solid;
+    margin-top: 10px;
+    text-align: left;
+    padding: 0 10px;
+}
+.modelTitle{
+  width: 100%;
+  text-align:center;
+  font-size:30rpx;
+  color:#333;
+  padding:20rpx 0;
+  border-bottom:1px solid #ccc      
+}
+.commodity_screen{
+  background-color:rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 666;
+  bottom:0;  
+}
+.modalPop{
+position:relative;
+background:#fff;
+width:90%;
+margin:0 auto;
+margin-top:150rpx;
+border-radius: 16rpx
+}
+.popBottom{
+  width: 100%;
+  margin-top:20rpx;
+  padding:20rpx 0;
+  text-align: center;
+}
+.cancelBtn,.confirmBtn{
+ padding:20rpx 0;
+ width:30%;
+ display: inline-block;
+ font-size:28rpx;
+ text-align: center;
+ border-radius:8rpx
+}
+.cancelBtn{
+ color:#333;
+ background: #f0f0f0;
+}
+.confirmBtn{
+  margin-left:20rpx;
+ color:#fff;
+ background:#f44336;
+}

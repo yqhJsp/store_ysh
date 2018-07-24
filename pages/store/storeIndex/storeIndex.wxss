@@ -1,0 +1,408 @@
+@import '../template/template.wxss';
+page {
+  background: #f0f0f0;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.session {
+  min-height: 500rpx;
+  position: relative;
+}
+
+.top {
+  height: 360rpx;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.top image {
+  height: 360rpx;
+  width: 100%;
+}
+
+.showContent {
+  position: absolute;
+  z-index: 100;
+  top: 250rpx;
+  margin-bottom: 50rpx;
+  left: 20rpx;
+  right: 20rpx;
+  flex-direction: column;
+  align-items: center;
+}
+
+.storeBox, .storeDome {
+  background: #fff;
+  border-radius: 8rpx;
+  border: 1rpx solid #dedede;
+  box-shadow: #dedede 0px 0px 8px;
+}
+
+.storeDome {
+  padding: 0 30rpx 35rpx 30rpx;
+  margin-top: 15rpx;
+}
+
+.indexLogo {
+  position: relative;
+  z-index: 1000;
+  margin-top: -80rpx;
+  text-align: center;
+}
+
+.logo {
+  width: 168rpx;
+  height: 168rpx;
+  border-radius: 100%;
+}
+
+.storeName {
+  color: #45cdc6;
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  padding: 0 40rpx;
+}
+
+.centerIcon {
+  margin-top: 10rpx;
+  text-align: center;
+}
+
+.storeCon {
+  height: 40rpx;
+  padding: 0 25rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #666;
+  border-radius: 8rpx;
+  margin-right: 15rpx;
+  background: #eee;
+  text-align: center;
+  display: inline-block;
+}
+
+.peroderBtn {
+  width: 90%;
+  height: 48rpx;
+  padding: 20rpx 0;
+  color: #fff;
+  text-align: center;
+  background: #45cdc6;
+  font-size: 32rpx;
+  margin: 0 auto;
+  border-radius: 8rpx;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+/*信息*/
+
+.showCeter {
+  background: #fff;
+  padding: 0 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.border {
+  border-bottom: 1rpx solid #dedede;
+}
+
+.showCeter .tr {
+  display: flex;
+  flex-flow: row;
+  padding: 25rpx 0;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.showCeter .tr view {
+  display: inline-block;
+}
+
+.showCeter .tr .td1 {
+  width: 10%;
+}
+
+.showCeter .tr .td2 {
+  width: 80%;
+  padding-top: 4rpx;
+}
+
+.showCeter .tr .td3 {
+  width: 10%;
+  text-align: right;
+}
+
+.icon {
+  width: 31rpx;
+  margin-top: 5rpx;
+}
+
+.mtop {
+  margin-top: 10rpx;
+}
+
+.mleft {
+  margin-left: 30rpx;
+}
+
+.ricon {
+  width: 32rpx;
+  margin-top: 8rpx;
+}
+
+.shownav {
+  padding: 0 20rpx;
+}
+
+/*优惠卷*/
+
+.storeConpou {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
+.storeTop {
+  width: 100%;
+  text-align: center;
+  padding: 20rpx 0 0 0;
+}
+
+.topImg {
+  width: 350rpx;
+}
+
+.couponOne {
+  width: 500rpx;
+  height: 206rpx;
+  border: 1rpx solid #efefef;
+  box-shadow: #efefef 2px 3px 3px;
+  flex: 1;
+  margin: 0;
+  display: flex;
+  flex-flow: row;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.couLeft {
+  width: 100%;
+  padding-left: 30rpx;
+}
+
+.couRigth {
+  /* width: 30%;
+ text-align: center */
+}
+
+.couprice {
+  font-size: 90rpx;
+  vertical-align: text-top;
+}
+
+.coutip {
+  font-size: 30rpx;
+  vertical-align: -10rpx;
+}
+
+.couRed {
+  color: #45cdc6;
+}
+
+.coudate {
+  font-size: 18rpx;
+  color: #999;
+}
+
+.coubttom {
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 10rpx;
+}
+
+.getcoup {
+  height: 104rpx;
+  width: 104rpx;
+  border-radius: 100%;
+  background: #45cdc6;
+  color: #eaffcc;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  display: inline-block;
+}
+
+.coufont {
+  width: 60rpx;
+  display: inline-block;
+  margin-top: 15rpx;
+}
+
+.storeMore {
+  width: 112rpx;
+  height: 209rpx;
+  background: #45cdc6;
+  color: #fff;
+  text-align: center;
+  border-radius: 16rpx;
+  margin-left: 10rpx;
+  margin-top: 20rpx;
+}
+
+.morefont {
+  font-size: 36rpx;
+  margin-top: 55rpx;
+}
+
+/*转发按钮*/
+
+.transmit {
+  position: fixed;
+  z-index: 200;
+  bottom: 150rpx;
+  right: 30rpx;
+  width: 120rpx;
+  text-align: center;
+}
+
+.tricon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-top: 10rpx;
+}
+
+.shareBtn, .sharecon {
+  height: 100rpx;
+  width: 100rpx;
+  border: none;
+  margin-top: 20rpx;
+  border-radius: 100%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.sharecon {
+  margin-left: 0;
+  margin-right: 0;
+  line-height: 30rpx;
+}
+
+.transmit button::after {
+  width: 0;
+  height: 0;
+}
+
+.tranfont {
+  font-size: 20rpx;
+}
+
+/*优惠卷弹窗*/
+
+.commodity_screen {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  position: fixed;
+  z-index: 666;
+  bottom: 0;
+}
+
+.coupon_area {
+  min-height: 600rpx;
+  max-height: 800rpx;
+  position: fixed;
+  z-index: 888;
+  bottom: 0;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.coupon_area {
+  background-color: #f5f5f5;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-none {
+  display: none !important;
+}
+
+/*优惠卷*/
+
+.couponTitle {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20rpx 0;
+}
+
+.coupon_tip {
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.coupon_no {
+  text-align: center;
+}
+
+.couponClose {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.couponClose {
+  padding: 20rpx;
+}
+
+.coupon_no {
+  text-align: center;
+}
+
+.coupon_no image {
+  width: 165rpx;
+  height: 179rpx;
+  margin-top: 60rpx;
+}
+
+.couponDome {
+  height: 1000rpx;
+  margin-top: 100rpx;
+  padding-left: 120rpx;
+}
+/*店铺展示*/
+.mall-list {
+  width: 210rpx;
+  height: 210rpx;
+  margin: 0 0 10rpx 10rpx;
+  display: inline-block;
+}
+
+.mall-list .mall-list-img {
+  position: relative;
+  overflow: hidden;
+  height: 210rpx;
+  width: 100%;
+}
+
+.mall-list .mall-list-img image {
+  width: 100%;
+  height: 210rpx;
+  opacity: 1;
+}

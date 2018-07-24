@@ -1,0 +1,77 @@
+<!--我要推广-->
+<view class='compaignTop'>
+  <image src='/images/mall/indexImg/cambg.png' mode='widthFix' class='combg'></image>
+  <view class='compaignInfo'>
+    <!--没成为分销前-->
+    <image class='comTip' src='/images/mall/indexImg/comNo.png' mode='widthFix' wx:if="{{distrib==''||distrib.status==2||distrib.status==0}}"></image>
+    <!--成分销-->
+    <view class='comData' wx:if="{{distrib.status==1}}">
+      <view class='comfont'>可提现金额(元)</view>
+      <view class='comMoney'>{{sum}}</view>
+      <view class='comBtn' bindtap='goDeposit'>金额提现</view>
+    </view>
+  </view>
+</view>
+<!--分销说明-->
+<view class='compainDes' wx:if="{{distrib==''||distrib.status==2||distrib.status==0}}">
+  <view>
+    <image src='/images/mall/indexImg/icon/fenxiao.png' class='comIcon'></image>
+    <text class='comTitle'>分销商说明</text>
+  </view>
+  <view class='comDes'>
+    <view>1.一次性购物满{{maninfo.condition/100}}元即可成为分销商</view>
+    <view>2.一级分销商可获得{{maninfo.oneLevelRatio}}%的佣金</view>
+     <view>3.二级分销商可获得{{maninfo.twoLevelRatio}}%的佣金</view>
+     <view class='comDes'>
+     其他:{{maninfo.distributionDesc}}
+     </view>
+  </view>
+</view>
+<!--按钮-->
+<view class='gofen' bindtap='getDistribution' wx:if="{{distrib==''||distrib.status==2||distrib.status==0}}">成为分销商</view>
+<!--分销列表-->
+<view class='comAlldom' wx:if="{{distrib.status==1}}">
+  <view class='comTab'>
+    <view class="tabOne {{select==0?'active':''}}" data-area="0" bindtap="changeArea">查看收益</view>
+    <view class="tabOne {{select==1?'active':''}}" data-area="1" bindtap="changeArea">提现记录</view>
+  </view>
+  <!--提现记录-->
+  <view class='comList' wx:if="{{select==1}}">
+    <block wx:for="{{brokeList}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+      <view class='comOne'>
+        <view class='onecenter'>
+          <view class='oneTitle'>提现了{{item.monery/100}}元</view>
+          <view class='oneDate'>{{item.createTime}}</view>
+        </view>
+        <view class='oneRight'>
+          <!-- <view class='yongjin'>{{item.monery/100}}</view> -->
+          <view class='yongtilte line' wx:if="{{item.status == 0}}">待审核</view>
+          <view class='yongtilte line' wx:if="{{item.status == 1}}">审核中</view>
+          <view class='yongtilte line' wx:if="{{item.status == 2}}">成功</view>
+          <view class='yongtilte line' wx:if="{{item.status == 3}}">撤回</view>
+           <view class='yongtilte line' wx:if="{{item.status ==4}}">提款失败</view>
+          <!-- <view class='yongtilte line'>{{statusDes}}</view> -->
+        </view>
+      </view>
+    </block>
+  </view>
+  <!--查看收益-->
+  <view class='comList' wx:if="{{select==0}}">
+    <block wx:for="{{loglist}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+      <view class='comOne'>
+        <view class='oneLeft'>
+          <image class='comhear' src='{{item.member.userInfo.avatarUrl}}'></image>
+        </view>
+        <view class='oneConter'>
+          <view class='oneTitle'>{{item.member.userInfo.nickName}}消费了{{item.order.totalPrices
+/100}}元</view>
+          <view class='oneDate'>{{item.createTime}}</view>
+        </view>
+        <view class='oneRight'>
+          <view class='yongjin'>{{item.way==1?'+':'-'}}{{item.monery/100}}</view>
+          <view class='yongtilte'>{{item.level==1?'一级佣金':'二级佣金'}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

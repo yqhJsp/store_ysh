@@ -1,0 +1,46 @@
+<!--我的余额-->
+<view class='session'>
+  <!--可提现余额-->
+  <image class='bgCall' src="/images/mall/indexImg/integbg.png" mode="widthFix"></image>
+  <view class='integralTop'>
+    <view class='usableInteg'>
+      <image src='/images/mall/indexImg/integicon.png' style='height:47rpx;width:44rpx;margin:0 20rpx'></image>
+      <label>{{myBalanceSum}}</label>
+    </view>
+    <view class='usableWord'>
+      <label class='mtop'>可提现余额(元）</label>
+    </view>
+    <view class='usableConter'>
+      <view class='intelLeft boleft'>
+        <label class='mtop'>当前累计余额</label>
+        <label class='redfont'>{{member.distributorSumMonery/100}}</label>
+      </view>
+      <view class='intelLeft'>
+        <label class='mtop'>支出余额</label>
+        <label class='redfont'>{{member.distributorOutMonery/100}}</label>
+      </view>
+    </view>
+  </view>
+
+  <!--收支明细列表-->
+  <view class='inteBottom'>
+    <view class='intelTitle'>
+    <view class='shouzhi'>收支明细</view>
+    <view class='danwei'>单位：元</view>
+    </view>
+    <view class='intelist'>
+      <block wx:for="{{contentlist}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+        <view class='intelOne'>
+          <view class='oneLeft'>
+            <view>{{item.forWay}}</view>
+            <view>{{item.createTime}}</view>
+          </view>
+          <view class='oneRight'>
+            <label>{{item.type==1?'+':'-'}}</label>{{item.integral/100}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+ <!--按钮-->
+  <view class='combtn' style='background-color:#{{maninfo.tone}}' bindtap='goPoularize'>余额提现</view>
+</view>

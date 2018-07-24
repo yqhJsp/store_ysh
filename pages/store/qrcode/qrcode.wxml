@@ -1,0 +1,13 @@
+<!--pages/mall/qrcode/qrcode.wxml-->
+<view class='qrcode'  wx:if="{{promoCode!=''}}">
+<image src='{{fileDomain}}{{promoCode}}' class='qrcodeImg' bindtap='previewImage' data-src="{{fileDomain}}{{promoCode}}"></image>
+<view class='qrcodeTip'>长按识别二维码或扫一扫，成为会员</view>
+</view>
+<view class='noMember' wx:if="{{promoCode==''}}">
+  <view class='setCode' bindtap='promocode' style='background:#{{tone}}'>生成推广码</view>
+</view>
+<view class='share' wx:if="{{promoCode!='' && scene==''}}" data-type="{{scene}}">
+  <button class='setCode' open-type="share" style='background:#{{tone}}'>
+  分享
+  </button>
+</view>

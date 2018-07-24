@@ -1,0 +1,10 @@
+<!--pages/user/myService/myService.wxml-->
+<import src="../../template/template"/>
+<view class='signList'>
+  <!--循环-->
+ <block wx:for="{{list}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+  <template is="myService" data="{{item,fileDomain}}"></template>
+ </block>
+</view>
+<!--无数据-->
+<template is="nodata"  wx:if="{{list.length==0}}"></template>

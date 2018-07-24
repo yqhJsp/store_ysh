@@ -1,0 +1,212 @@
+@import '../template/template.wxss';
+
+page {
+  background: #f0f0f0;
+}
+
+.storeBanner {
+  height: 272rpx;
+  width: 100%;
+  position: relative;
+}
+
+.view_banner {
+  height: 272rpx;
+}
+
+.view_banner image {
+  height: 100%;
+  width: 100%;
+}
+
+/*优惠卷*/
+
+.storeCoupon {
+  height: 336rpx;
+  width: 100%;
+  background: #fff;
+}
+
+.storeTop {
+  width: 100%;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.topImg {
+  width: 350rpx;
+}
+
+.sontent {
+  margin: 0 24rpx 20rpx 24rpx;
+}
+
+.uploadWrap {
+  height: 219rpx;
+  width: 100%;
+  display: flex;
+  display: -webkit-box;
+  flex-direction: column;
+}
+
+/*门店列表*/
+
+.storeBttom {
+  position: relative;
+  background-color: #fff;
+  margin-bottom:100rpx
+}
+
+.storeTitle {
+  height: 88rpx;
+  position: relative;
+  text-align: center;
+}
+.storeTab {
+  height: 50rpx;
+  width: 350rpx;
+  display: flex;
+  flex-flow: row;
+  margin: 0 auto;
+  padding: 20rpx 0;
+}
+
+.tabOne {
+  width: 160rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.tavtive {
+  color: #666;
+  border-bottom: 1rpx solid #666;
+}
+
+.mleft {
+  margin-left: 100rpx;
+}
+
+.storeList {
+  background: #fff;
+  width: 100%;
+}
+
+.storeSpread {
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.spreadBtn {
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  color: #fff;
+  display: inline-block;
+  background: #29f;
+  border-radius: 8rpx;
+  text-align: center;
+  margin-right: 20rpx;
+}
+
+/*商品栏目*/
+
+.view-table-view {
+  position: relative;
+  border-bottom: 0;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.view-table-view .nav-list {
+  padding: 0;
+  margin-top: 10rpx;
+  background: #fff;
+}
+
+.view-list-title {
+  text-align: center;
+  /* border-bottom: 1rpx solid #dedede; */
+  width: 55%;
+  margin: 0 auto;
+   height:100rpx; 
+  /* padding: 40rpx 0 40rpx 0; */
+  line-height:100rpx;
+  font-size: 30rpx;
+  font-family: Arial, Helvetica, sans-serif
+}
+.store-line{
+    /* width: 2em;
+    height: 2em; */
+    margin: 0px auto;
+    box-sizing: border-box;
+    color:#333;
+    background-color: #fff;
+    clear:both
+}
+.raduio-left,.raduio-rigth{
+   width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    color:#ccc;
+    background-color:#ccc;
+    display: inline-block;
+    position:absolute;
+    top:45rpx; 
+}
+.raduio-left{
+  left:22%;
+}
+.raduio-rigth{
+   right:22%;
+}
+.line{
+  margin-top:-50rpx;
+    box-sizing: border-box;
+    color: inherit;
+}
+.line-left,.line-right{
+    width: 25%;
+    color: inherit;
+    height:1rpx;
+    background-color:#ccc
+}
+.fl{
+    float: left;
+}
+.fr{
+   float: right;
+}
+.viewFlex {
+  height: 88rpx;
+  background: #fff;
+  overflow: hidden;
+  flex-flow: row;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.view-table-view .nav-list .view-mall {
+  margin: 0 20rpx 0 20rpx;
+  position: relative;
+  /* padding: 10rpx 0; */
+}
+.view-table-view .nav-list .view-store{
+   margin: 0 20rpx 0 20rpx; 
+ }
+
+.shopHeigth {
+  width: 70%;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  font-size: 32rpx;
+  display: inline-block;
+  border-left: #fb7193 solid 5rpx;
+}
+
+/*服务卡列表*/
+
+.serviceList {
+}

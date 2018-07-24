@@ -1,0 +1,155 @@
+<!--我的订单-->
+<view wx:if="{{isPayPattern==1}}">
+  <view class='order-tab'>
+    <view class="orderOne {{currentNavtab==1 ? 'tactive' : ''}}" data-idx="1" bindtap="switchTab">
+      <text>待付款</text>
+    </view>
+    <view class="orderOne {{currentNavtab==2 ? 'tactive' : ''}}" data-idx="2" bindtap="switchTab">
+      <text>待发货</text>
+    </view>
+    <view class="orderOne {{currentNavtab==6 ? 'tactive' : ''}}" data-idx="6" bindtap="switchTab">
+      <text>待收货</text>
+    </view>
+    <view class="orderOne {{currentNavtab==3? 'tactive' : ''}}" data-idx="3" bindtap="switchTab">
+      <text>已完成</text>
+    </view>
+    <view class="orderOne {{currentNavtab==5? 'tactive' : ''}}" data-idx="5" bindtap="switchTab">
+      <text>退款</text>
+    </view>
+  </view>
+  <!--列表渲染-->
+  <view class="content">
+    <!--订单列表-->
+    <block wx:for="{{list}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+      <view class='order_box' id='o_{{item.id}}'>
+        <view class='order_top'>
+          <label>订单编号：{{item.id}}</label>
+          <label class='order_type'>{{item.order_des}}</label>
+        </view>
+        <view class="my_orde">
+          <block wx:for="{{item.orderProducts}}" wx:key="name" wx:for-index="index1" wx:for-item="item1">
+            <view class='order_shop {{index1!=item.orderProducts.length-1 || item.orderProducts.length==1?"top":""}}'>
+              <view class='order-item clear' data-id='{{item.id}}' bindtap='goOrderDetail' data-type="{{item.safeguardStatus}}">
+                <view class='thumbnails'>
+                  <image src='{{fileDomain}}{{item1.productRule.image}}' class='thumbnails_img'></image>
+                </view>
+                <view class='item_tip'>
+                  <view class='order_dis_title'>
+                    <label>{{item1.product.title}}</label>
+                  </view>
+                  <view class='order_rulse'>
+                    <label>{{item1.productRule.name}}</label>
+                  </view>
+                  <view class='order_dis_price'>
+                    <label class='red'>￥{{item1.onePrice/100}}
+                    <label wx:if="{{item1.integral!=0}}">+{{item1.integral}}积分</label></label>
+                    <label class='num fr'>x{{item1.number}}</label>
+                  </view>
+                  <!--下单时间-->
+                  <view class='order_rulse'>
+                    <label>下单时间：{{item.createTime}}</label>
+                  </view>
+                </view>
+              </view>
+              <view wx:if="{{item.status==3&&safeguardStatus==0}}" class='evuat'>
+                <view class='btn-evuat active' id='{{item1.product.id}}' catchtap='evluateOrder' data-id='{{item.id}}' wx:if="{{item1.evaluateBool==false}}">评价</view>
+                <label wx:if="{{item1.evaluateBool==true}}">已评价</label>
+              </view>
+            </view>
+          </block>
+          <view class='order_info_bottom'>
+            <text class='stypes'>类型：{{item.ordertype}}</text>
+            <text class='textrigth'>共计{{item.allNum}}件商品  合计：{{item.totalPrices/100}}</text>
+          </view>
+          <view class='order-clun'>
+            <view wx:if="{{item.status==1&&safeguardStatus==0}}">
+              <view class='btn-order' bindtap='cancelOrder' id='{{item.id}}'>取消订单</view>
+              <view class='btn-order active' bindtap='goPay' data-id='{{item.id}}' data-total="{{item.totalPrices}}" data-type="{{item.type}}">付款</view>
+            </view>
+            <view wx:if="{{item.status==2&&safeguardStatus==0}}">
+              <view class='btn-order active' bindtap='refundOrder' data-id='{{item.id}}'>申请退款</view>
+            </view>
+            <view wx:if="{{item.status==6&&safeguardStatus==0}}">
+              <view class='btn-order' data-id='{{item.id}}' bindtap='refundOrder'>申请退款</view>
+              <!-- <view class='btn-order' data-code='{{item.expressType}}' data-number='{{item.expressNumber}}' bindtap='openExpressage'>查看物流</view> -->
+              <view class='btn-order active' bindtap='comfirmOrder' id='{{item.id}}' data-sum='{{item.totalPrices}}'>确认收货</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!--end-->
+  </view>
+</view>
+
+<!--mini版-->
+<view wx:if="{{isPayPattern==2}}">
+  <view class='order-tab'>
+    <view class="orderOne">
+      <text>我的预约</text>
+    </view>
+  </view>
+  <view class="content">
+    <block wx:for="{{subscribelist}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+      <view class='subBox {{subscribelist.length-1!=index?"boder":""}}'>
+        <view class='subImg'>
+          <image src='{{fileDomain}}{{item.product.imageIds}}'></image>
+        </view>
+        <view class='itemSub'>
+          <view class='order_rulse subTitle'>
+            <text class='rulesTitle'>商品名称：</text>
+            <text>{{item.product.title}}</text>
+          </view>
+          <view class='order_rulse'>
+            <text class='rulesTitle'>姓名：</text>
+            <text>{{item.name}}</text>
+          </view>
+          <view class='order_rulse'>
+            <text class='rulesTitle'>电话号码：</text>
+            <text>{{item.mobile}}</text>
+          </view>
+          <view class='order_rulse subTitle'>
+            <text class='rulesTitle'>留言：</text>
+            <text>{{item.desc}}</text>
+          </view>
+        </view>
+        <view class='cancelItem'>
+          <view class='cancelCoult' catchtap='cancelSub' data-id="{{item.id}}" wx:if="{{item.status==1}}">取消预约</view>
+          <label class='tip' wx:if="{{item.status==3}}">已取消</label>
+          <label class='tip' wx:if="{{item.status==2}}">已处理</label>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!--无数据时-->
+<view class="tab-content1" wx:if="{{isPayPattern==1&&list.length==0}}">
+  <image src='/images/mall/nodata/icon_zanwudingdan.png' class='tab-image'></image>
+</view>
+
+<view class="tab-content1" wx:if="{{isPayPattern==2&&subscribelist.length==0}}">
+  <image src='/images/mall/nodata/icon_zanwuyuyue.png' class='tab-image'></image>
+</view>
+
+
+<!--取消订单得弹窗-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}">
+  <view class="modalPop">
+    <view class='modelTitle'>请选择原因</view>
+    <view class="list">
+      <block wx:for="{{navTab}}" wx:key="name" wx:for-index="idx" wx:for-item="itemName">
+        <view class="li {{resonId==idx+1?'liactive':''}}" data-idx="{{idx}}" catchtap="chooseReson" data-reid="{{resonId}}">
+          <lable>{{itemName}}</lable>
+          <view class="other" wx:if="{{resonId==6&&idx==6}}">
+            <textarea data-tag="comment-text" maxlength="100" style='color:#333'></textarea>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='popBottom'>
+      <view class='cancelBtn' bindtap='hideModal'>取消</view>
+      <view class='confirmBtn' bindtap='modalOk'>确认</view>
+    </view>
+  </view>
+</view>

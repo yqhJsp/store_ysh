@@ -1,0 +1,15 @@
+<!--pages/marketing/deposit/deposit.wxml-->
+<view class='depContaint'>
+  <view class='deptitle'>提现</view>
+  <view class='depceter'>
+    <view class='depLeft'>
+      <input class='depInput' type="digit"  bindinput='prefInput' value=''></input>
+      <view class='depIcon' form-type="reset">
+        <icon type='clear' side="10" color='#ccc' bindtap='clear'></icon>
+      </view>
+    </view>
+    <view class='depRigth' bindtap='clear'>修改金额</view>
+  </view>
+  <view class="deps">可提现金额{{member.distributorSumMonery/100}}元</view>
+</view>
+<view class='mod_btn' bindtap='goSave'>确认提交</view>

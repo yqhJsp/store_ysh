@@ -1,0 +1,25 @@
+/* pages/marketing/coupon/coupon.wxss */
+@import '/pages/mall/template/template.wxss';
+page{  
+  background:#f5f5f5;  
+}  
+.session{
+
+}
+.couponList{
+  padding:0 20rpx;
+  position:relative;
+}
+.tab-content
+{
+  width: 100%;
+  text-align:center;
+  display:inline-block
+}
+.tab-image
+{
+margin-top: 130rpx;
+margin-bottom: 50rpx;
+width:316rpx;
+height:236rpx;
+}

@@ -1,0 +1,57 @@
+<!--评价界面-->
+<view class='row'>
+  <view class='fail-item '>
+    <view class='order_one'>
+      <view bindtap="goDetail" class='clear navigator'>
+        <view class='pro-img'>
+          <image src="{{fileDomain}}{{proinfo.images}}"></image>
+        </view>
+        <view class='product-info-box'>
+          <text class='shoptitle'>{{proinfo.title}}</text>
+          <text class='futile'>{{proinfo.name}}</text>
+          <view class='nav_prive'>
+            <label class='red-price'>￥{{proinfo.price/100}}
+             <label class='red-price' wx:if="{{proinfo.integral!=0}}">+{{proinfo.integral}}积分</label>
+            </label>
+            <label class='little-icon fr'>x{{proinfo.numbers}}</label>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='comment_textarea'>
+    <view class='textarea_wrap'>
+      <textarea data-tag="comment-text" maxlength="150" id="evlContent" placeholder="亲，您对这个商品满意吗？您的评价对会帮助我们选择更好的产品0 ！长度在6-500字之间" bindinput="bindKeyInput"></textarea>
+    </view>
+  </view>
+  <!--上传图片-->
+  <view class='evaluateImg'>
+    <view class='order_table'>
+      <text class='saveBtn' bindtap='upimg'>上传图片</text>
+      <text style='font-size:26rpx'>（最多五张）</text>
+      <view class='img_result'>
+        <block wx:for="{{img_arr}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+          <image src='{{item}}'></image>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!--评价-->
+  <view class='evaluateStar'>
+    <view class='order_table'>
+      <view class='ordertr'>
+        <view class='ordertd ortitle' style='font-size:28rpx'>
+          商品评分：
+        </view>
+        <view class='ordertd'>
+          <block wx:for="{{stars}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+            <image src='{{flag<item ?"/images/mall/indexImg/icon/star.png":"/images/mall/indexImg/icon/star-in.png"}}' style="width:40rpx;height:40rpx" bindtap="changeColor" data-id='{{item}}'></image>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='save_cont'>
+    <button class='mod_btn' bindtap='save'>保存</button>
+  </view>
+</view>

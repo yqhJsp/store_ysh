@@ -1,0 +1,35 @@
+<!--支付成功界面-->
+<view class='session'>
+  <view class='success-tip success-tab'>
+    <label class='success-btn' bindtap='openOrder'>查看订单</label>
+    <label class='success-btn' bindtap='returnIndex'>返回首页</label>
+  </view>
+  <!--商品列表-->
+  <view class='row'>
+    <view class='list-title'>猜你喜欢</view>
+    <view class='success-list'>
+      <view class='mall-contact'>
+        <block wx:for="{{products}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+          <view class='mall-one' bindtap='godetail' id="{{item.id}}">
+            <view class='shopImg'>
+              <image src="{{fileDomain}}{{item.imageIds}}"></image>
+            </view>
+            <view class='shopbottom'>
+              <view class='mall-listword'>
+                {{item.title}}
+              </view>
+              <view class='shop-prive'>
+                <label class='fl privefont'>￥{{item.minPrice/100}}
+                 <label wx:if="{{item.rules[0].integral!=0}}">+{{item.rules[0].integral}}积分</label>
+                </label>
+                <label class='kucun fr'>已售{{item.outNumber}}件</label>
+
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <!--end-->
+    </view>
+  </view>
+</view>

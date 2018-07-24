@@ -1,0 +1,68 @@
+/* pages/site/distDetail/distDetail.wxss */
+@import '../template/template.wxss';
+page {
+  background: #f0f0f0;
+}
+.session{
+  padding:0 25rpx;
+  margin-top:30rpx;
+  position: relative
+}
+.detailFont{
+  color:#333;
+  font-size:28rpx
+}
+.memberCont{
+  padding:0
+}
+.signTian {
+  background: #fff;
+  border-radius:8rpx;
+  position: relative;
+  box-shadow: #dedede 0px 0px 8px;
+  margin-top:20rpx;
+}
+
+.signTem {
+  display: flex;
+  flex-flow: row;
+  padding:0 30rpx;
+  height:88rpx;
+  line-height: 88rpx
+}
+
+.name {
+  width:10%;
+}
+.intelnum{
+  color:#666;
+  font-size: 28rpx;
+  display: inline-block
+}
+.nameText,.detailTitle {
+  font-size: 28rpx;
+}
+.nameText{
+  color: #666;
+   width:15%;
+}
+.detailTitle{
+  width:80%;
+  color: #333;
+}
+.temRignt{
+  width: 80%; 
+  text-align: left;
+  font-size:28rpx;
+  color:#666
+}
+.goIcon{
+width: 32rpx;
+height:32rpx;
+}
+.border {
+  border-bottom: 1rpx solid #e7e7e7;
+}
+.martop{
+  margin-top:250rpx
+}

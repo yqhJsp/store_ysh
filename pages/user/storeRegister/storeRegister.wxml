@@ -1,0 +1,118 @@
+<!--pages/site/personalinfo/personalinfo.wxml-->
+<import src="../../store/template/template" />
+<view class='userTop' style='background-color:#{{maninfo.tone}}'></view>
+<view class='session'>
+  <view class='top'>
+    <view class='indexLogo'>
+      <image src='{{member.userInfo.avatarUrl}}' class='useIcon' wx:if="{{member.userInfo.avatarUrl!=''}}"></image>
+      <image src='/images/mall/indexImg/hear.png' class='useIcon' wx:if="{{member.userInfo.avatarUrl==''}}"></image>
+    </view>
+    <view class='userNmae' wx:if="{{member.userInfo.nickName!=''}}">{{member.userInfo.nickName}}</view>
+    <view class='userNmae' wx:if="{{member.userInfo.nickName==''}}">客官</view>
+  </view>
+
+  <view class='signTian'>
+  <!--姓名-->
+    <view class='signTem border'>
+      <view class='nameText'>
+        <label class='reds'>*</label>姓名：
+      </view>
+      <view class='temRignt'>
+        <input class='integInput' bindinput='nameInput' value='{{name}}' placeholder="请填写姓名" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+    <!--手机号-->
+    <view class='signTem border'>
+      <view class='nameText'>
+        <label class='reds'>*</label>
+        手机号：
+      </view>
+      <view class='codeRight'>
+        <input class="integInput" type='number' bindinput='phoneInput' value='{{mobile}}' placeholder="请填写手机号码" placeholder-style="color:#999"></input>
+      </view>
+      <view class='mcode'>
+        <button class="msg" disabled="{{disabled}}" data-id="2" bindtap="getVerificationCode">{{time}}</button>
+      </view>
+    </view>
+    <!--验证码-->
+    <view class='signTem border'>
+      <view class='nameText'>
+         <label class='reds'>*</label>验证码：
+      </view>
+      <view class='codeRight'>
+        <input class='integInput' type='number' bindinput='codeInput' value='' placeholder="请输入验证码" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+    <!--登录密码-->
+    <view class='signTem border'>
+      <view class='nameText' style='width:35%'>
+        <label class='reds'>*</label>登录密码：
+      </view>
+      <view class='temRignt'>
+        <input class='integInput' bindinput='passwordInput' value='' placeholder="请填写密码" placeholder-style="color:#999" type='password'></input>
+      </view>
+    </view>
+     <!--推荐人-->
+    <view class='signTem border' wx:if="{{member.referrerId==''&&scene.length==0}}">
+      <view class='nameText' style='width:40%'>
+      推荐人手机号码：
+      </view>
+      <view class='temRignt' style='width:60%'>
+        <input class='integInput' bindinput='subjectInput' type='number' value='{{subject}}' placeholder="请填写推荐人手机号码" placeholder-style="color:#999"></input>
+      </view>
+    </view>
+   <!--门店-->
+    <view class='signTem'>
+      <view class='nameText'>
+       门店：
+      </view>
+      <view class='temRignt' bindtap='selectStore'>
+        <view class='storeName'>{{storeList.name}}</view>
+      </view>
+    </view>
+  </view>
+  <!--end-->
+  <view class='mod_btn' bindtap='saveMember' style='margin-top:100rpx;background-color:#{{maninfo.tone}}'>立即注册</view>
+</view>
+
+<!--弹窗-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="coupon_area {{isSoupon == 1 ? 'display-block':'display-none'}}">
+  <view class="couponTitle">
+    <view class="coupon_tip">
+      选择门店
+    </view>
+    <image class="couponClose" bindtap="hideModal" src="/images/store/indexImg/delete.png"></image>
+  </view>
+  <view class='couponDome'>
+    <block wx:if="{{infos.length>0}}">
+      <block wx:for="{{infos}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+        <view class="storeOne" catchtap='goStore' data-id="{{item.id}}">
+        <view class='storeLeft'>
+          <image src='{{fileDomain}}{{item.image}}'></image>
+        </view>
+        <view class='storeCenter'>
+          <view class='centerTitle'>{{item.name}}</view>
+          <view class='centerIcon'>
+          <block wx:for="{{item.tags}}" wx:for-index="index" wx:for-item="item1" wx:key="key">
+            <view class='storeCon'>{{item1}}</view>
+            </block>
+          </view>
+          <view class='centerAddress'>
+            <image src='/images/store/indexImg/adicon.png' class='signicon'></image>
+            <label class='address'>{{item.address}}</label>
+          </view>
+        </view>
+        <view class='storeRigth'>
+        <image src='/images/store/indexImg/icon-arrow.png' class='goIcon'></image>
+        </view>
+      </view>
+      </block>
+    </block>
+    <block wx:else>
+      <view class='coupon_no'>
+      <image src='/images/store/indexImg/no.png'></image>
+      </view>
+    </block>
+  </view>
+</view>

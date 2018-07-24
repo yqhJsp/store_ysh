@@ -1,0 +1,26 @@
+<!--pages/marketing/myCoupon/myCoupon.wxml-->
+<import src="/pages/mall/template/template" />
+<view class='order-tab'>
+    <view class="orderOne {{currentNavtab==1 ? 'tactive' : ''}}" data-idx="1" bindtap="switchTab">
+      <text>未使用</text>
+    </view>
+    <view class="orderOne {{currentNavtab==2 ? 'tactive' : ''}}" data-idx="2" bindtap="switchTab">
+      <text>已使用</text>
+    </view>
+    <view class="orderOne {{currentNavtab==3 ? 'tactive' : ''}}" data-idx="3" bindtap="switchTab">
+      <text>已过期</text>
+    </view>
+  </view>
+    <!--优惠卷列表-->
+  <view class='myList'>
+   <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+   <template data="{{item,fileDomain,des}}" is="coupon1"></template>
+   </block>
+  </view>
+  <view class='mycouttom'>
+    <view class='couponbtn' bindtap='goCoupon'>去领卷中心</view>
+  </view>
+  <!--无数据时-->
+<view class="tab-content1" wx:if="{{list.length==0}}">
+  <image src='/images/mall/nodata/icon_zanwuyouhui.png' class='tab-image'></image>
+</view>

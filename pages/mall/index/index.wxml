@@ -1,0 +1,67 @@
+<!--pages/mall/index/index.wxml-->
+<import src="../template/template" />
+<!--container-->
+<view class='session'>
+  <view class="section view_bady">
+    <!--搜索栏-->
+    <view class="flex-wrp view_search {{variable>300 ? 'active' : ''}}" bindscroll="scroll" style='background-color:#{{maninfo.tone}}'>
+      <view class="view-left-search">
+        <view class='mall-icon-search' bindtap='goSearch'>
+          <image src='/images/mall/indexImg/icon/seachicon.png' />
+        </view>
+        <input placeholder="请输入搜索的商品" placeholder-style="color:#666666" focus="{{focus}}" class='search' bindinput='bindSearch' value='{{searchName}}' />
+      </view>
+      <view class="flex-item view_megase" bindtap='openMessage'>
+        <view class='mall-icon-search'>
+          <image src='/images/mall/indexImg/icon/icon_message.png' class='messageImg' />
+        </view>
+      </view>
+    </view>
+    <!--banner背景-->
+    <view class='top_content'>
+      <view class='top' style='background-color:#{{maninfo.tone}}'></view>
+      <view class='top_1' style=''></view>
+    </view>
+    <!--banner轮播图-->
+    <view class='swiper_content'>
+      <swiper indicator-dots="false" autoplay="false" interval="3000" duration="500" class='view_banner' circular="true" indicator-active-color="#ccc">
+        <block wx:for="{{swiper}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+          <swiper-item bindtap="goDetail" id="{{item.linkInfo}}">
+            <image src="{{fileDomain}}{{item.attachId}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--end-->
+    <!--栏目-->
+    <view class='view-table-view'>
+      <block wx:for="{{indexColumns}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+        <view class='nav-list'>
+          <view class='view-list-title'>
+            <label class='shopHeigth'>{{item.title}} </label>
+          </view>
+          <view class='lm-panel' id="{{item.bannerProductId}}" bindtap="goDetail" wx:if="{{item.bannerImg!=''}}">
+            <image mode='widthFix' src="{{fileDomain}}{{item.bannerImg}}" style='width:100%;' />
+          </view>
+          <view class='view-mall'>
+            <block wx:for="{{item.products}}" wx:key="key1" wx:for-index="index1" wx:for-item="item1">
+              <template data="{{item1,fileDomain,isPayPattern}}" is="indexColumns3" wx:if="{{item.showType==2}}"></template>
+              <template data="{{item1,fileDomain,isPayPattern}}" is="indexColumns2" wx:if="{{item.showType==3}}"></template>
+              <template data="{{item1,fileDomain,isPayPattern}}" is="indexColumns1" wx:if="{{item.showType==4}}"></template>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!--购物车按钮-->
+<view class='transmit'>
+  <view class='shareBtn' bindtap='toCar' style='background-color:#{{maninfo.tone}}'>
+   <view class='tranCart'> 购物车</view>
+  </view>
+</view>
+</view>
+<!--预加载-->
+<view class='loadView' wx:if="{{isLoad}}">
+  <image src='/images/mall/indexImg/yuload.gif' mode='widthFix' class='loadImg'></image>
+</view>

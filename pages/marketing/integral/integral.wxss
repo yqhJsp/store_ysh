@@ -1,0 +1,112 @@
+/* pages/marketing/ integral/ integral.wxss */
+page{
+  background:#fff
+}
+.session{
+  height: 100%;
+  overflow:hidden;
+  margin-bottom:100rpx
+}
+
+.bgCall{
+ position:relative;
+ width: 100%;
+ height:418rpx;
+ z-index:10      
+}
+.integralTop {
+  top:0;
+  left:0;      
+  display: flex;
+  position:absolute;
+  flex-direction: column;
+  align-items: center;
+  font-size:36rpx;
+  width:100%;
+  height:360rpx;
+  z-index:1000;
+}
+.account-bg {
+  width: 100%;
+  height:270rpx;
+}
+.userinfo-avatar {
+  width:100%;
+  height:90rpx;
+}
+.usableInteg{
+  padding-top:80rpx;
+  font-size:48rpx;
+  font-weight:bold;
+  color:#fff;
+  text-align:center
+}
+.usableWord{
+  color:#fff;
+  text-align:center;
+  font-size:30rpx;
+  padding-top:30rpx;
+  width:100%
+}
+.usableConter{
+ display:flex;
+ flex-flow:row;
+ font-size:28rpx;
+ color:#333;
+ margin-top:85rpx;
+ width:100%
+}
+.intelLeft{
+width:50%;
+text-align:center
+}
+.boleft{
+  border-right:1rpx solid #fff
+}
+.redfont{
+  color: #fff;
+  padding-left:20rpx
+}
+.mtop{
+ color:#ffa39e
+}
+.inteBottom{
+  border-top:20rpx solid #f5f5f5;
+  padding:0;
+}
+.intelTitle{
+  font-size:28rpx;
+  padding:30rpx 30rpx;
+  color: #666;
+  font-weight: bold;
+  border-bottom:1rpx solid #f5f5f5;
+   display: flex;
+  flex-flow:row 
+}
+.shouzhi{
+ width:60% 
+}
+.danwei{
+  text-align:right;
+  width:40%
+}
+.intelist{
+  font-size:28rpx;
+ 
+}
+.intelOne{
+ display:flex;
+ flex-flow:row;
+ font-size:28rpx;
+ padding:20rpx 30rpx;
+ height:80rpx;
+ border-bottom:1rpx solid #f5f5f5
+}
+.oneLeft{
+  width:70%;
+}
+.oneRight{
+  width:30%;
+  text-align:right;
+  line-height:80rpx
+}
